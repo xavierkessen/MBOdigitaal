@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 3508 2481" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,155.741,247.39)">
+        <path d="M1420.66,962.14L1420.66,1354.74C1420.66,1372.86 1405.96,1387.57 1387.84,1387.57L594.671,1387.57C576.555,1387.57 561.848,1372.86 561.848,1354.74L561.848,962.14C561.848,944.024 576.555,929.317 594.671,929.317L1387.84,929.317C1405.96,929.317 1420.66,944.024 1420.66,962.14Z" style="fill:rgb(61,84,255);"/>
+    </g>
+    <g transform="matrix(1,0,0,1,-126.259,542.208)">
+        <g transform="matrix(416.667,0,0,416.667,1654.86,986.999)">
+        </g>
+        <text x="904.734px" y="986.999px" style="font-family:'CourierNewPSMT', 'Courier New';font-size:416.667px;fill:white;">MBO</text>
+    </g>
+    <g transform="matrix(2.08859,0,0,2.08859,-2465.04,-369.754)">
+        <g transform="matrix(125,0,0,125,2549.51,903.681)">
+        </g>
+        <text x="1949.41px" y="903.681px" style="font-family:'CourierNewPSMT', 'Courier New';font-size:125px;">digitaal</text>
+    </g>
+    <g transform="matrix(1,0,0,1,165.666,234.884)">
+        <rect x="1671.86" y="1123.92" width="16.801" height="29.402" style="fill:rgb(199,139,252);"/>
+    </g>
+    <g transform="matrix(1,0,0,1,479.005,234.884)">
+        <rect x="1671.86" y="1123.92" width="16.801" height="29.402" style="fill:rgb(199,139,252);"/>
+    </g>
+</svg>
