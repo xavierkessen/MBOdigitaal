@@ -1,52 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <?php require 'templates/head.php' ?>
 </head>
 
 <body>
-    <header class="header sticky top-0 bg-white shadow-md flex items-center justify-between px-8 py-02">
-        <!-- logo -->
-        <h1 class="w-3/12">
-            <a href="">
-                <img src="/images/logo.png" alt="Logo MBOdigitaal">
-            </a>
-        </h1>
+    <?php require 'templates/menu.php' ?>
 
-        <!-- navigation -->
-        <nav class="nav font-semibold">
-            <ul class="flex items-center">
-                <li
-                    class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-blue-100 hover:text-blue-500 duration-200 cursor-pointer active">
-                    <a href="">Keuzedelen</a>
-                </li>
-                <li
-                    class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-blue-100 hover:text-blue-500 duration-200 cursor-pointer">
-                    <a href="">Levels</a>
-                </li>
-                <li
-                    class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-blue-100 hover:text-blue-500 duration-200 cursor-pointer">
-                    <a href="">Materialen</a>
-                </li>
-            </ul>
-        </nav>
+    <div class="mt-6 mb-16 w-11/12 p-6 space-y-8 sm:p-8 bg-white rounded-lg dark:bg-gray-800 mx-auto">
 
-        <!-- Login Button -->
-        <form class="max-w-sm">
-            <div class="flex items-center py-2">
-                <button
-                    class="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 border-4 text-lg text-white py-1 px-6 rounded"
-                    type="button">
-                    Login
-                </button>
-            </div>
-        </form>
+        <h2 class="text-3xl font-bold dark:text-white">Automatisering voor en door studenten</h2>
+        <p class="my-4 font-bold text-lg text-gray-700">Het project MBO digitaal is een project van de Software Development opleiding van het Vista College. Studenten helpen op allerdaagse zaken zoals keuzedelen, beoordelingen en examenroosters overzichtelijk te maken voor studenten. Dit doen ze door processen, die veelal door docenten worden uitgevoerd, te automatiseren.</p>
+        <p class="mb-4 text-lg font-normal text-gray-700 dark:text-gray-500">Dit project is een onderdeel van Challenge based learning waarin groepen studenten worden uitgedaagd om het bestaande project MBO Digitaal uit te breiden met nieuwe functionaliteiten die van meerwaarde zijn voor studenten en docenten.</p>
+        <a href="#" class="inline-flex items-center text-lg text-blue-600 dark:text-blue-500 hover:underline">
+            Lees meer
+            <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9" />
+            </svg>
+        </a>
 
-    </header>
+        <h3 class="text-xl font-bold dark:text-white">Overzicht van onze opleidingen</h3>
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Crebo
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Naam opleiding
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Niveau
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            25604
+                        </th>
+                        <td class="px-6 py-4">
+                            Software Development
+                        </td>
+                        <td class="px-6 py-4">
+                            Niveau 4
+                        </td>
+                    </tr>
+                    <tr
+                        class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            25605
+                        </th>
+                        <td class="px-6 py-4">
+                            Allround medewerker IT Systems and Devices
+                        </td>
+                        <td class="px-6 py-4">
+                            Niveau 3
+                        </td>
+                    </tr>
+                    <tr
+                        class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            25606
+                        </th>
+                        <td class="px-6 py-4">
+                            Expert IT Systems and Devices
+                        </td>
+                        <td class="px-6 py-4">
+                            Niveau 4
+                        </td>
+                    </tr>
+                    <tr
+                        class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            25607
+                        </th>
+                        <td class="px-6 py-4">
+                            Medewerker ICT Support
+                        </td>
+                        <td class="px-6 py-4">
+                            Niveau 2
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <?php require 'templates/footer.php' ?>
+    
+    </div>
+
 
 </body>
 
