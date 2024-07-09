@@ -14,7 +14,7 @@
         <p class="my-4 font-bold text-lg text-gray-700">Het project MBO digitaal is een project van de Software Development opleiding van het Vista College. Studenten helpen op allerdaagse zaken zoals keuzedelen, beoordelingen en examenroosters overzichtelijk te maken voor studenten. Dit doen ze door processen, die veelal door docenten worden uitgevoerd, te automatiseren.</p>
         <p class="mb-4 text-lg font-normal text-gray-700 dark:text-gray-500">Dit project is een onderdeel van Challenge based learning waarin groepen studenten worden uitgedaagd om het bestaande project MBO Digitaal uit te breiden met nieuwe functionaliteiten die van meerwaarde zijn voor studenten en docenten.</p>
         <a href="#" class="inline-flex items-center text-lg text-blue-600 dark:text-blue-500 hover:underline">
-            Lees meer
+            Lees verder
             <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 fill="none" viewBox="0 0 14 10">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
