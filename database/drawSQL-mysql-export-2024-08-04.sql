@@ -1,20 +1,22 @@
 CREATE TABLE `user`(
     `id` CHAR(36) NOT NULL,
     `duoNumber` INT NULL,
-    `name` VARCHAR(50) NOT NULL,
+    `firstName` VARCHAR(50) NOT NULL,
+    `prefix` VARCHAR(20) NULL,
+    `lastName` VARCHAR(50) NOT NULL,
     `secret` VARCHAR(255) NULL,
-    `changeScretAtLogon` BOOLEAN NULL,
     `email` VARCHAR(255) NOT NULL,
     `phone` VARCHAR(20) NULL,
+    `changeSecretAtLogon` BOOLEAN NULL,
     `enabled` BOOLEAN NOT NULL,
-    `roleId` CHAR(36) NOT NULL,
+    `roleId` CHAR(36) NULL,
     `educationId` CHAR(36) NULL,
     `creationDate` DATETIME NOT NULL,
     `modificationDate` DATETIME NOT NULL,
     PRIMARY KEY(`id`)
 );
 ALTER TABLE
-    `user` ADD UNIQUE `user_name_unique`(`name`);
+    `user` ADD UNIQUE `user_firstname_unique`(`firstName`);
 ALTER TABLE
     `user` ADD UNIQUE `user_email_unique`(`email`);
 CREATE TABLE `education`(

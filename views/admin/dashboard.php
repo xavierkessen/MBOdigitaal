@@ -32,7 +32,7 @@
                             </a>
                         </td>
                         <td class="px-4 py-2">
-                            <a class="underline" href="/admin/auth/user/edit">
+                            <a class="underline" href="/admin/users/edit">
                                 562541
                             </a>
                         </td>
@@ -88,7 +88,6 @@
                 </tbody>
             </table>
         </div>
-    </div>
     </div>
 
 </body>
