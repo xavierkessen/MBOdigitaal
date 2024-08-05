@@ -2,7 +2,7 @@
         <!-- logo -->
         <h1 class="w-3/12">
             <a href="">
-                <img src="/images/logo.png" alt="Logo MBOdigitaal">
+                <img src="/images/logo.png" width="250" alt="Logo MBOdigitaal">
             </a>
         </h1>
 

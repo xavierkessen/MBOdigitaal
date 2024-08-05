@@ -1,7 +1,7 @@
 <div class="md:flex">
     <ul class="flex-column space-y-2 text-sm font-medium text-gray-50 dark:text-gray-400 md:me-4 mb-4 md:mb-0">
         <li>
-            <a href="#"
+            <a href="/admin/users/overview"
                 class="inline-flex items-center px-4 py-2 rounded-lg hover:text-gray-50 bg-stone-700 hover:bg-stone-300 w-full dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white">
                 <svg class="w-4 h-4 me-2 text-gray-50 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -12,7 +12,7 @@
             </a>
         </li>
         <li>
-            <a href="#"
+            <a href="/admin/roles/overview"
                 class="inline-flex items-center px-4 py-2 rounded-lg hover:text-gray-50 bg-stone-700 hover:bg-stone-300 w-full dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white">
                 <svg class="w-4 h-4 me-2 text-gray-50 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                     <path fill-rule="evenodd"
@@ -23,7 +23,7 @@
             </a>
         </li>
         <li>
-            <a href="#"
+            <a href="/admin/educations/overview"
                 class="inline-flex items-center px-4 py-2 rounded-lg hover:text-gray-50 bg-stone-700 hover:bg-stone-300 w-full dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white">
                 <svg class="w-4 h-4 me-2 text-gray-50 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24" fill="currentColor" class="size-6">

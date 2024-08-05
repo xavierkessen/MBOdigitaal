@@ -5,11 +5,12 @@
 // Dit is de controller-pagina voor het toevoegen van een
 // een nieuwe gebruiker.
 
-// 1. VARIABELEN EN DATABASE CONNECTIE
+// Globale variablen en functies die op bijna alle pagina's
+// gebruikt worden.
 require $_SERVER['DOCUMENT_ROOT'] . '/config/globalvars.php';
-$db = require __DOCUMENTROOT__ . '/database/dbconnection.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/errors/default.php';
 
-// 2. AFKOMST EN INPUT CONTROLEREN EN OPVANGEN
+// 2. INPUT CONTROLEREN EN OPVANGEN
 // Controleren of de pagina is aangeroepen met behulp van een link (GET).
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if(isset($_GET["id"])) {
@@ -24,11 +25,10 @@ else {
     $errorMessage = "De pagina is op onjuiste manier aangeroepen.";
     callErrorPage($errorMessage, 400);
 }
-echo $errorMessage;
-
 
 // 2. ACTIES
 // Er zijn nu geen acties.
+$db = require __DOCUMENTROOT__ . '/database/dbconnection.php';
 
 
 // 3. VIEWS OPHALEN

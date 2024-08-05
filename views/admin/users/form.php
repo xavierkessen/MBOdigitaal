@@ -10,7 +10,7 @@
 
     <div class="mt-6 mx-auto px-4 bg-stone-950">
         <?php require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/templates/menu.php' ?>
-        <div class="p-6 text-medium text-stone-50 rounded w-full min-h-screen">
+        <div class="p-6 text-medium text-stone-50 rounded w-full md:w-3/5 lg:w-2/5 min-h-screen">
             <h3 class="text-lg font-bold text-stone-100 text-white mb-2">Gebruiker beheren</h3>
             <p class="mb-2"></p>
             <br>
@@ -35,7 +35,7 @@
                             Voornaam
                         </label>
                     </div>
-                    <div class="md:w-2/3">
+                    <div class="md:w-2/3>
                         <input
                             class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                             id="firstName" name="firstName" type="text" value="">
