@@ -19,11 +19,23 @@ require $_SERVER['DOCUMENT_ROOT'] . '/config/globalvars.php';
 // 3. CONTROLLER FUNCTIES
 // Hier vinden alle acties plaats die moeten gebeuren om de juiste
 // informatie te bewerken.
-$db = require __DOCUMENTROOT__ . '/database/dbconnection.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/models/Roles.php';
 
+$roles = Role::selectAll();
+
+// Controleren of het gelukt is om een rol toe te voegen aan de database.
+if (!$roles) {
+    $message = "Het is niet gelukt om alle rollen op te halen uit de database.";
+    callErrorPage($message);
+}
+
+// echo "<pre>";
+// print_r($roles);
+// echo "</pre>";
 
 // 4. VIEWS OPHALEN
 // De HTML-pagina (view) wordt hier opgehaald.
 // $title is de titel van de html pagina.
+$newUrl = "/admin/roles/new";
 $title = "Overzicht rollen";
 require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/roles/overview.php';

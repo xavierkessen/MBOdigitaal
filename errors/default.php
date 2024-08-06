@@ -1,5 +1,5 @@
 <?php
-function callErrorPage($errorMessage, $errorCode)
+function callErrorPage($errorMessage)
 {
     $urlErrorPage = "/errorpage?message=$errorMessage";
     header('Location: ' . $urlErrorPage, true);

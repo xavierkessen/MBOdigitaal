@@ -33,21 +33,21 @@ class Role
         }
     }
 
-    // public static function select($id) {
-    //     $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/db.php';
+    public static function select($id) {
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
-    //     $sql_select_education_by_id = "SELECT * FROM education WHERE id=?;";
+        $sql_select_role_by_id = "SELECT * FROM role WHERE id=?;";
 
-    //     $stmt = $db->prepare($sql_select_education_by_id);
+        $stmt = $db->prepare($sql_select_role_by_id);
 
-    //     if($stmt->execute([$id]) ){
-    //         $educations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if($stmt->execute([$id]) ){
+            $roles = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-    //         foreach ($educations as $education) {
-    //             return $education;
-    //         }
-    //     }
-    // }
+            foreach ($roles as $role) {
+                return $role;
+            }
+        }
+    }
 
     public static function selectAll() {
         $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
@@ -91,18 +91,17 @@ class Role
 
     // }
 
-    // public static function delete($id) {
-    //     $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/db.php';
+    public static function delete($id) {
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
-    //     $sql_delete_education_by_id = "DELETE FROM education WHERE id=?;";
-    //     $stmt = $db->prepare($sql_delete_education_by_id);
-    //     if( $stmt->execute([$id]) ) {
-    //         return true;
+        $sql_delete_rol_by_id = "DELETE FROM role WHERE id=?;";
+        $stmt = $db->prepare($sql_delete_rol_by_id);
+        if( $stmt->execute([$id]) ) {
+            return true;
 
-    //     } else {
-    //         return false;
-    //     }
-
-    // }
+        } else {
+            return false;
+        }
+    }
     
 }

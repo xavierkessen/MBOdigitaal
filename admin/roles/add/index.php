@@ -1,8 +1,8 @@
 <?php
 
-// url: /admin/roles/new
-// Dit is de controller-pagina voor het formulier toevoegen van 
-// een nieuwe role.
+// url: /admin/roles/add
+// Dit is de controller-pagina voor het toevoegen van een nieuwe
+// role afkomstig van het formulier /admin/roles/new.
 
 // Globale variablen en functies die op bijna alle pagina's
 // gebruikt worden.
@@ -16,7 +16,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/errors/default.php';
 // 2. INPUT CONTROLEREN
 // Controleren of de pagina is aangeroepen met behulp van form POST
 // en of the variabelen wel bestaan.
-// htmlspecialchars() wordt gebruikt om cross site scripting te voorkomen.
+// htmlspecialchars() wordt gebruikt om cross site scripting (xss) te voorkomen.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verlnaam rolnaam opvangen en opslaan.
     if(isset($_POST["name"])) {
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     else {
         $errorMessage = "Rolnaam is niet ingevuld of ontbreekt.";
-        callErrorPage($errorMessage, 400);
+        callErrorPage($errorMessage);
     }
     
     // Veldnaam level opvangen en opslaan.
@@ -33,17 +33,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     else {
         $errorMessage = "Level is niet ingevuld of ontbreekt.";
-        callErrorPage($errorMessage, 400);
+        callErrorPage($errorMessage);
     } 
 }
 else {
     $errorMessage = "De pagina is op onjuiste manier aangeroepen. Geen POST gebruikt.";
-    callErrorPage($errorMessage, 400);
+    callErrorPage($errorMessage);
 }
 
 // 3. CONTROLLER FUNCTIES
-// Hier vinden alle acties plaats die moeten gebeuren om de juiste
-// informatie te bewerken.
+// Hier vinden alle acties plaats die moeten gebeuren voordat een nieuwe pagina
+// wordt getoond.
 require $_SERVER['DOCUMENT_ROOT'] . '/models/Roles.php';
 
 $result = Role::insert(
@@ -51,17 +51,17 @@ $result = Role::insert(
     $level
 );
 
+// Controleren of het gelukt is om een rol toe te voegen aan de database.
 if ($result) {
-    echo "Role met naam $name en level $level is toegevoegd.";
-    $roles = Role::selectAll();
+    $message = "Role met naam $name en level $level is toegevoegd.";
 } else {
-    echo "Toevoegen aan database niet gelukt.";
+    $message = "Het is niet gelukt om een nieuwe rol toe te voegen.";
+    callErrorPage($message);
 }
 
-// 4. VIEWS OPHALEN
-// De HTML-pagina (view) wordt hier opgehaald.
-// $title is de titel van de html pagina.
-$title = "Overzicht rollen";
-$editmode = false;
-$actionUrl = "/admin/roles/add";
-// require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/roles/form.php';
+// 4. VIEWS OPHALEN (REDIRECT)
+// Er wordt hier een redirect gedaan naar het overzicht van alle rollen.
+// Het bericht de gebruiker is toegevoegd wordt meegestuurd als variabele.
+$url = "/admin/roles/overview/?message=$message";
+header('Location: ' . $url, true);
+exit();
