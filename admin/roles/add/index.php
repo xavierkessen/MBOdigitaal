@@ -14,8 +14,9 @@ require $_SERVER['DOCUMENT_ROOT'] . '/errors/default.php';
 // heeft. De rollen "applicatiebeheerder" en "administrator" hebben toegang. 
 
 // 2. INPUT CONTROLEREN
-// Controleren of de pagina is aangeroepen met behulp van een link (GET).
-// Op dit moment hier niet van toepassing.
+// Controleren of de pagina is aangeroepen met behulp van form POST
+// en of the variabelen wel bestaan.
+// htmlspecialchars() wordt gebruikt om cross site scripting te voorkomen.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verlnaam rolnaam opvangen en opslaan.
     if(isset($_POST["name"])) {
