@@ -53,7 +53,7 @@ $result = Role::insert(
 
 // Controleren of het gelukt is om een rol toe te voegen aan de database.
 if ($result) {
-    $message = "Role met naam $name en level $level is toegevoegd.";
+    $message = "Role met naam $name met level $level is toegevoegd.";
 } else {
     $message = "Het is niet gelukt om een nieuwe rol toe te voegen.";
     callErrorPage($message);

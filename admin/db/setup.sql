@@ -1,3 +1,6 @@
+use mbogodigital;
+
+/* PART 1: DATABASE STRUCTURE */
 CREATE TABLE `user`(
     `id` CHAR(36) NOT NULL,
     `duoNumber` INT NULL,
@@ -25,6 +28,8 @@ CREATE TABLE `education`(
     `Name` VARCHAR(100) NOT NULL,
     `Level` INT NULL,
     `description` BLOB NULL,
+    `registerUntil` DATE NOT NULL,
+    `graduateUntil` DATE NOT NULL,
     PRIMARY KEY(`id`)
 );
 ALTER TABLE
@@ -63,8 +68,13 @@ CREATE TABLE `role`(
     PRIMARY KEY(`id`)
 );
 ALTER TABLE
+    `role` ADD UNIQUE `role_name_unique`(`name`);
+ALTER TABLE
     `levels` ADD CONSTRAINT `levels_educationid_foreign` FOREIGN KEY(`educationId`) REFERENCES `education`(`id`);
 ALTER TABLE
     `user` ADD CONSTRAINT `user_educationid_foreign` FOREIGN KEY(`educationId`) REFERENCES `education`(`id`);
 ALTER TABLE
     `user` ADD CONSTRAINT `user_roleid_foreign` FOREIGN KEY(`roleId`) REFERENCES `role`(`id`);
+
+/* PART 2: DATA */
+INSERT INTO `role` VALUES ('126c5a69-792c-427a-8bd9-0e20b8651f2b','Docent',20),('37914d3e-8e27-46e5-982f-30651d3276da','Applicatiebeheerder',80),('5482254d-709b-4f59-adf4-83d7f67d9553','Administrator',100),('6e27105c-c42a-46c8-9cd6-34ff1fe52572','Student',10);

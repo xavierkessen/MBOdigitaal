@@ -1,8 +1,8 @@
 <?php
 
-// url: /admin/roles/overview
-// Dit is de controller-pagina voor het genereren van een overzicht
-// van alle rollen.
+// url: /admin/roles/detail
+// Dit is de controller-pagina voor het genereren van een detailpagina van
+// één rol.
 
 // Globale variablen en functies die op bijna alle pagina's
 // gebruikt worden.
@@ -15,12 +15,20 @@ require $_SERVER['DOCUMENT_ROOT'] . '/config/globalvars.php';
 // 2. INPUT CONTROLEREN
 // Controleren of de pagina is aangeroepen met behulp van een link (GET).
 // Op dit moment hier niet van toepassing.
-// Na het bewerken van 
+// De ID van de rol wordt hier opgevangen. 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    // Message afkomst van andere pagina.
-    if(isset($_GET["message"])) {
-        $message = htmlspecialchars($_GET["message"]);
+    // Veldnaam id opvangen en opslaan.
+    if(isset($_GET["id"])) {
+        $id = htmlspecialchars($_GET["id"]);
     }
+    else {
+        $errorMessage = "De id van de rol is niet meegegeven.";
+        callErrorPage($errorMessage);
+    }
+}
+else {
+    $errorMessage = "De pagina is op onjuiste manier aangeroepen. Geen GET gebruikt.";
+    callErrorPage($errorMessage);
 }
 
 // 3. CONTROLLER FUNCTIES
@@ -28,21 +36,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 // informatie te bewerken.
 require $_SERVER['DOCUMENT_ROOT'] . '/models/Roles.php';
 
-$roles = Role::selectAll();
-
-// Controleren of het gelukt is om een rol toe te voegen aan de database.
-if (!$roles) {
-    $message = "Het is niet gelukt om alle rollen op te halen uit de database.";
-    callErrorPage($message);
-}
-
-// echo "<pre>";
-// print_r($roles);
-// echo "</pre>";
+$role = Role::select($id);
 
 // 4. VIEWS OPHALEN
 // De HTML-pagina (view) wordt hier opgehaald.
 // $title is de titel van de html pagina.
-$newUrl = "/admin/roles/new";
-$title = "Overzicht rollen";
-require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/roles/overview.php';
+$title = "Rol detailoverzicht";
+$id = $role["id"];
+$name = $role["name"];
+$level = $role["level"];
+$editUrl = "/admin/roles/edit";
+require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/roles/detailedview.php';

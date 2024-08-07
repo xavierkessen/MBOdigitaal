@@ -33,6 +33,8 @@ class Role
         }
     }
 
+    // select selecteert één rol op basis van een gegeven id.
+    // Er wordt een associative array ($role["id"]) van de rol gereturneerd.
     public static function select($id) {
         $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
@@ -49,10 +51,12 @@ class Role
         }
     }
 
+    // selectAll selecteert alle rollen. Geordend op level.
+    // Er wordt een associative array met meerdere rijen gereturneerd.
     public static function selectAll() {
         $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
-        $sql_selectAll_roles = "SELECT * FROM role;";
+        $sql_selectAll_roles = "SELECT * FROM role ORDER by level;";
         
         $stmt = $db->prepare($sql_selectAll_roles);
         
@@ -62,35 +66,36 @@ class Role
         }
     }
 
-    // public static function update(
-    //     $id,
-    //     $eduName,
-    //     $institution,
-    //     $graduationDate,
-    //     $certificate
-    // ){
-    //     $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/db.php';
+    // update werkt de informatie van een record van een bepaalde id bij.
+    // De functie returneerd true als dit gelukt is en false als het niet
+    // gelukt is.
+    public static function update(
+        $id,
+        $name,
+        $level
+    ){
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
-    //     $sql_update_education_by_id = "UPDATE education
-    //     SET edu_name=?, institution=?, graduation_date=?, certificate=?
-    //     WHERE id=?";
+        $sql_update_role_by_id = "UPDATE role
+        SET name=?, level=?
+        WHERE id=?";
 
-    //     $stmt = $db->prepare($sql_update_education_by_id);
+        $stmt = $db->prepare($sql_update_role_by_id);
 
-    //     if ( $stmt->execute([
-    //         $eduName,
-    //         $institution,
-    //         $graduationDate,
-    //         $certificate,
-    //         $id
-    //     ]) ) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
+        if ( $stmt->execute([
+            $name,
+            $level,
+            $id
+        ]) ) {
+            return true;
+        } else {
+            return false;
+        }
 
-    // }
+    }
 
+    // delete verwijdert een record uit de tabel role met een bepaald id.
+    // De functie returneert true als dit gelukt is en false als dit niet gelukt is.
     public static function delete($id) {
         $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
