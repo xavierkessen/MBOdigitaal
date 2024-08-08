@@ -20,6 +20,11 @@
                     type="submit">
                     Rol bewerken
                 </button>
+                <button
+                    class="shadow bg-stone-700 hover:bg-stone-300 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                    type="reset" onclick="window.location='<?php echo $overviewUrl ?>';return false;">
+                    Terug
+                </button>
             </form>
             <br>
 

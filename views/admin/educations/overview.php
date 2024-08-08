@@ -31,27 +31,29 @@
                 <thead>
                     <tr class="bg-stone-800">
                         <th class="px-4 py-2 text-left">Delete</th>
-                        <th class="px-4 py-2 text-left">Rolnaam</th>
-                        <th class="px-4 py-2 text-left">Level (van 0 t/m 100)</th>
+                        <th class="px-4 py-2 text-left">Crebo nummber</th>
+                        <th class="px-4 py-2 text-left">Naam opleiding</th>
+                        <th class="px-4 py-2 text-left">Niveau</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($roles as $role) {
+                    foreach ($educations as $education) {
                         ?>
                         <tr class="even:bg-stone-900 odd:bg-stone-950">
                             <td class="px-4 py-2">
-                                <a href="/admin/roles/delete?id=<?php echo $role["id"]; ?>"
+                                <a href="/admin/educations/delete?id=<?php echo $education["id"]; ?>"
                                     onclick="return confirm('Weet je zeker dat je deze roll wil verwijderen?');">
                                     <img src=" /images/trash.svg" alt="Trash" />
                                 </a>
                             </td>
                             <td class="px-4 py-2">
-                                <a class="underline" href="/admin/roles/detail?id=<?php echo $role["id"]; ?>">
-                                    <?php echo $role["name"]; ?>
+                                <a class="underline" href="/admin/educations/detail?id=<?php echo $education["id"]; ?>">
+                                    <?php echo $education["creboNumber"]; ?>
                                 </a>
                             </td>
-                            <td class="px-4 py-2"> <?php echo $role["level"]; ?></td>
+                            <td class="px-4 py-2"> <?php echo $education["name"]; ?></td>
+                            <td class="px-4 py-2"> <?php echo $education["level"]; ?></td>
                         </tr>
                         <?php
                     }

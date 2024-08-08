@@ -17,7 +17,7 @@ try {
 
     // Execute the SQL commands
     $db->exec($sql);
-    echo 'SQL file imported successfully';
+    echo 'SQL file succesvol geïmporteerd.';
 } catch (PDOException $e) {
     echo 'Database error: ' . $e->getMessage();
 } catch (Exception $e) {

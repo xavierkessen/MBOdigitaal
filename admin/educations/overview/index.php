@@ -7,6 +7,7 @@
 // Globale variablen en functies die op bijna alle pagina's
 // gebruikt worden.
 require $_SERVER['DOCUMENT_ROOT'] . '/config/globalvars.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/errors/default.php';
 
 // 1. INLOGGEN CONTROLEREN
 // Hier wordt gecontroleerd of de gebruiker is ingelogd en de juiste rechten
@@ -26,19 +27,16 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 // 3. CONTROLLER FUNCTIES
 // Hier vinden alle acties plaats die moeten gebeuren om de juiste
 // informatie te bewerken.
-require $_SERVER['DOCUMENT_ROOT'] . '/models/Roles.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/models/Educations.php';
 
-$roles = Role::selectAll();
+$educations = Education::selectAll();
 
 // Controleren of het gelukt is om een rol toe te voegen aan de database.
-if (!$roles) {
-    $message = "Het is niet gelukt om alle rollen op te halen uit de database.";
-    callErrorPage($message);
-}
+// if (!$educations) {
+//     $message = "Het is niet gelukt om alle opleidingen op te halen uit de database.";
+//     callErrorPage($message);
+// }
 
-// echo "<pre>";
-// print_r($roles);
-// echo "</pre>";
 
 // 4. VIEWS OPHALEN
 // De HTML-pagina (view) wordt hier opgehaald.

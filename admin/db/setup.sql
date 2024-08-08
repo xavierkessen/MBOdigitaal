@@ -14,6 +14,7 @@ CREATE TABLE `user`(
     `enabled` BOOLEAN NOT NULL,
     `roleId` CHAR(36) NULL,
     `educationId` CHAR(36) NULL,
+    `cohort` BIGINT NULL,
     `creationDate` DATETIME NOT NULL,
     `modificationDate` DATETIME NOT NULL,
     PRIMARY KEY(`id`)
@@ -25,17 +26,17 @@ ALTER TABLE
 CREATE TABLE `education`(
     `id` CHAR(36) NOT NULL,
     `creboNumber` VARCHAR(20) NOT NULL,
-    `Name` VARCHAR(100) NOT NULL,
-    `Level` INT NULL,
+    `name` VARCHAR(100) NOT NULL,
+    `level` INT NULL,
     `description` BLOB NULL,
-    `registerUntil` DATE NOT NULL,
-    `graduateUntil` DATE NOT NULL,
+    `registerUntil` DATE NULL,
+    `graduateUntil` DATE NULL,
     PRIMARY KEY(`id`)
 );
 ALTER TABLE
     `education` ADD UNIQUE `education_crebonumber_unique`(`creboNumber`);
 ALTER TABLE
-    `education` ADD UNIQUE `education_name_unique`(`Name`);
+    `education` ADD UNIQUE `education_name_unique`(`name`);
 CREATE TABLE `keuzedelen`(
     `id` CHAR(36) NOT NULL,
     `code` VARCHAR(10) NOT NULL,

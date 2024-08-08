@@ -34,16 +34,22 @@ else {
 // 3. CONTROLLER FUNCTIES
 // Hier vinden alle acties plaats die moeten gebeuren om de juiste
 // informatie te bewerken.
-require $_SERVER['DOCUMENT_ROOT'] . '/models/Roles.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/models/Educations.php';
 
-$role = Role::select($id);
+$education = Education::select($id);
+
 
 // 4. VIEWS OPHALEN
 // De HTML-pagina (view) wordt hier opgehaald.
 // $title is de titel van de html pagina.
 $title = "Rol detailoverzicht";
-$id = $role["id"];
-$name = $role["name"];
-$level = $role["level"];
-$editUrl = "/admin/roles/edit";
-require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/roles/detailedview.php';
+$id = $education["id"];
+$creboNumber = $education["creboNumber"];
+$name = $education["name"];
+$level = $education["level"];
+$description = $education["description"];
+$registerUntil = $education["registerUntil"];
+$graduateUntil = $education["graduateUntil"];
+$editUrl = "/admin/educations/edit";
+$overviewUrl = "/admin/educations/overview";
+require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/educations/detailedview.php';

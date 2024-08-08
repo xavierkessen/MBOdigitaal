@@ -46,4 +46,5 @@ $id = $role["id"];
 $name = $role["name"];
 $level = $role["level"];
 $editUrl = "/admin/roles/edit";
+$overviewUrl = "/admin/roles/overview";
 require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/roles/detailedview.php';
