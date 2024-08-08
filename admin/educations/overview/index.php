@@ -2,7 +2,7 @@
 
 // url: /admin/roles/overview
 // Dit is de controller-pagina voor het genereren van een overzicht
-// van alle rollen.
+// van alle opleidingen.
 
 // Globale variablen en functies die op bijna alle pagina's
 // gebruikt worden.
@@ -31,7 +31,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/models/Educations.php';
 
 $educations = Education::selectAll();
 
-// Controleren of het gelukt is om een rol toe te voegen aan de database.
+// Controleren of het gelukt is om een opleiding toe te voegen aan de database.
 // if (!$educations) {
 //     $message = "Het is niet gelukt om alle opleidingen op te halen uit de database.";
 //     callErrorPage($message);

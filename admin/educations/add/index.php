@@ -88,12 +88,12 @@ $result = Education::insert(
 if ($result) {
     $message = "Opleiding met naam $name met het niveau $level is toegevoegd.";
 } else {
-    $message = "Het is niet gelukt om een nieuwe rol toe te voegen.";
+    $message = "Het is niet gelukt om een nieuwe opleiding toe te voegen.";
     callErrorPage($message);
 }
 
 // 4. VIEWS OPHALEN (REDIRECT)
-// Er wordt hier een redirect gedaan naar het overzicht van alle rollen.
+// Er wordt hier een redirect gedaan naar het overzicht van alle opleidingen.
 // Het bericht de gebruiker is toegevoegd wordt meegestuurd als variabele.
 $url = "/admin/educations/overview/?message=$message";
 header('Location: ' . $url, true);

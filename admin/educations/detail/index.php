@@ -2,7 +2,7 @@
 
 // url: /admin/roles/detail
 // Dit is de controller-pagina voor het genereren van een detailpagina van
-// één rol.
+// één opleiding.
 
 // Globale variablen en functies die op bijna alle pagina's
 // gebruikt worden.
@@ -15,7 +15,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/config/globalvars.php';
 // 2. INPUT CONTROLEREN
 // Controleren of de pagina is aangeroepen met behulp van een link (GET).
 // Op dit moment hier niet van toepassing.
-// De ID van de rol wordt hier opgevangen. 
+// De ID van de opleiding wordt hier opgevangen. 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // Veldnaam id opvangen en opslaan.
     if(isset($_GET["id"])) {
@@ -42,7 +42,7 @@ $education = Education::select($id);
 // 4. VIEWS OPHALEN
 // De HTML-pagina (view) wordt hier opgehaald.
 // $title is de titel van de html pagina.
-$title = "Rol detailoverzicht";
+$title = "Opleiding detailoverzicht";
 $id = $education["id"];
 $creboNumber = $education["creboNumber"];
 $name = $education["name"];

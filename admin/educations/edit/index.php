@@ -1,7 +1,7 @@
 <?php
 
-// url: /admin/roles/edit
-// Dit is de controller-pagina voor het bewerkingsformulier van een bestaande rol.
+// url: /admin/educations/edit
+// Dit is de controller-pagina voor het bewerkingsformulier van een bestaande opleiding.
 
 // Globale variablen en functies die op bijna alle pagina's
 // gebruikt worden.
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $id = htmlspecialchars($_GET["id"]);
     }
     else {
-        $errorMessage = "De id van de rol is niet meegegeven.";
+        $errorMessage = "De id van de opleiding is niet meegegeven.";
         callErrorPage($errorMessage);
     }
 }
@@ -34,24 +34,29 @@ else {
 // 3. CONTROLLER FUNCTIES
 // Hier vinden alle acties plaats die moeten gebeuren voordat een nieuwe pagina
 // wordt getoond.
-// Informatie van bestaande rol wordt opgehaald uit de database.
-require $_SERVER['DOCUMENT_ROOT'] . '/models/Roles.php';
+// Informatie van bestaande opleiding wordt opgehaald uit de database.
+require $_SERVER['DOCUMENT_ROOT'] . '/models/Educations.php';
 
-$role = Role::select($id);
+$education = Education::select($id);
 
-// Controleren of het gelukt is om een rol toe te voegen aan de database.
-if (!$role) {
-    $message = "Het is niet gelukt om de rol met de id $id op te halen.";
+// Controleren of het gelukt is om een opleiding toe te voegen aan de database.
+if (!$education) {
+    $message = "Het is niet gelukt om een opleiding met de id $id op te halen.";
     callErrorPage($message);
 }
 
 // 4. VIEWS OPHALEN (REDIRECT)
 // De HTML-pagina (view) wordt hier opgehaald.
 // $title is de titel van de html pagina.
-$title = "Formulier rol bewerken";
+$title = "Formulier opleiding bewerken";
 $editmode = true;
-$actionUrl = "/admin/roles/update";
-$idValue = $role["id"];
-$nameValue = $role["name"];
-$levelValue = $role["level"];
-require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/roles/form.php';
+$actionUrl = "/admin/educations/update";
+$idValue = $education["id"];
+$creboNumberValue = $education["creboNumber"];
+$nameValue = $education["name"];
+$levelValue = $education["level"];
+$descriptionValue = $education["description"];
+$registerUntilValue = $education["registerUntil"];
+$graduateUntilValue = $education["graduateUntil"];
+$editUrl = "/admin/educations/edit";
+require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/educations/form.php';

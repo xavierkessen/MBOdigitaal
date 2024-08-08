@@ -1,7 +1,7 @@
 <?php
 
-// url: /admin/roles/delete
-// Dit is de controller-pagina voor het verwijderen van een rol.
+// url: /admin/educations/delete
+// Dit is de controller-pagina voor het verwijderen van een opleiding.
 
 // Globale variablen en functies die op bijna alle pagina's
 // gebruikt worden.
@@ -17,12 +17,12 @@ require $_SERVER['DOCUMENT_ROOT'] . '/errors/default.php';
 // en of the variabelen wel bestaan.
 // htmlspecialchars() wordt gebruikt om cross site scripting (xss) te voorkomen.
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    // Verlnaam rolnaam opvangen en opslaan.
+    // Verdnaam id opvangen en opslaan.
     if(isset($_GET["id"])) {
         $id = htmlspecialchars($_GET["id"]);
     }
     else {
-        $errorMessage = "De id van de rol is niet meegegeven.";
+        $errorMessage = "De id van de opleiding is niet meegegeven.";
         callErrorPage($errorMessage);
     }
 }
@@ -34,21 +34,21 @@ else {
 // 3. CONTROLLER FUNCTIES
 // Hier vinden alle acties plaats die moeten gebeuren voordat een nieuwe pagina
 // wordt getoond.
-require $_SERVER['DOCUMENT_ROOT'] . '/models/Roles.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/models/Educations.php';
 
-$result = Role::delete($id);
+$result = Education::delete($id);
 
-// Controleren of het gelukt is om een rol toe te voegen aan de database.
+// Controleren of het gelukt is om een opleiding toe te voegen aan de database.
 if ($result) {
-    $message = "Role met de id $id is verwijderd.";
+    $message = "Opleiding met de id $id is verwijderd.";
 } else {
-    $message = "Het is niet gelukt om deze rol te verwijderen.";
+    $message = "Het is niet gelukt om deze opleiding te verwijderen.";
     callErrorPage($message);
 }
 
 // 4. VIEWS OPHALEN (REDIRECT)
-// Er wordt hier een redirect gedaan naar het overzicht van alle rollen.
+// Er wordt hier een redirect gedaan naar het overzicht van alle opleidingen.
 // Het bericht de gebruiker is toegevoegd wordt meegestuurd als variabele.
-$url = "/admin/roles/overview/?message=$message";
+$url = "/admin/educations/overview/?message=$message";
 header('Location: ' . $url, true);
 exit();

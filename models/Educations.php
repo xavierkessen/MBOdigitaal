@@ -104,8 +104,8 @@ class Education
                 $name,
                 $level,
                 $description,
-                $registerUntil,
-                $graduateUntil,
+                $registerUntil == "" ? null : $registerUntil,
+                $graduateUntil == "" ? null : $graduateUntil,
                 $id
             ])
         ) {
