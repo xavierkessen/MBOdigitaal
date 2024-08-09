@@ -1,6 +1,6 @@
 <?php
 
-// url: /admin/educations/edit
+// url: /admin/users/edit
 // Dit is de controller-pagina voor het bewerkingsformulier van een bestaande opleiding.
 
 // Globale variablen en functies die op bijna alle pagina's
@@ -34,29 +34,39 @@ else {
 // 3. CONTROLLER FUNCTIES
 // Hier vinden alle acties plaats die moeten gebeuren voordat een nieuwe pagina
 // wordt getoond.
-// Informatie van bestaande opleiding wordt opgehaald uit de database.
+// Informatie van bestaande gebruiker wordt opgehaald uit de database.
+require $_SERVER['DOCUMENT_ROOT'] . '/models/Users.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/models/Educations.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/models/Roles.php';
 
-$education = Education::select($id);
+$user = Users::select($id);
+$educations = Education::selectAll();
+$roles = Role::selectAll();
 
-// Controleren of het gelukt is om een opleiding toe te voegen aan de database.
-if (!$education) {
-    $message = "Het is niet gelukt om een opleiding met de id $id op te halen.";
+// Controleren of het gelukt is om een gebruiker toe te voegen aan de database.
+if (!$user) {
+    $message = "Het is niet gelukt om de gebruiker met de id $id op te halen.";
     callErrorPage($message);
 }
 
 // 4. VIEWS OPHALEN (REDIRECT)
 // De HTML-pagina (view) wordt hier opgehaald.
 // $title is de titel van de html pagina.
-$title = "Formulier opleiding bewerken";
+$title = "Formulier gebruiker bewerken";
 $editmode = true;
-$actionUrl = "/admin/educations/update";
-$idValue = $education["id"];
-$creboNumberValue = $education["creboNumber"];
-$nameValue = $education["name"];
-$levelValue = $education["level"];
-$descriptionValue = $education["description"];
-$registerUntilValue = $education["registerUntil"];
-$graduateUntilValue = $education["graduateUntil"];
-$editUrl = "/admin/educations/edit";
-require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/educations/form.php';
+$actionUrl = "/admin/users/update";
+$editUrl = "/admin/users/edit";
+$idValue = $user["id"];
+$duoNumberValue = $user["duoNumber"];
+$firstNameValue = $user["firstName"];
+$prefixValue = $user["prefix"];
+$lastNameValue = $user["lastName"];
+$emailValue = $user["email"];
+$phoneValue = $user["phone"];
+$changeSecretAtLogonValue = $user["changeSecretAtLogon"];
+$enabledValue = $user["enabled"];
+$roleIdValue = $user["roleId"];
+$cohortValue = $user["cohort"];
+$creationDateValue = $user["creationDate"];
+$modificationDateValue = $user["modificationDate"];
+require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/users/form.php';

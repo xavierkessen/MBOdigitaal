@@ -44,18 +44,18 @@
                         ?>
                         <tr class="even:bg-stone-900 odd:bg-stone-950">
                             <td class="px-4 py-2">
-                                <a href="<?php echo $deleteUrl ?>?id=<?php echo $education["id"]; ?>"
+                                <a href="<?php echo $deleteUrl ?>?id=<?php echo $user["id"]; ?>"
                                     onclick="return confirm('Weet je zeker dat je deze roll wil verwijderen?');">
                                     <img src=" /images/trash.svg" alt="Trash" />
                                 </a>
                             </td>
                             <td class="px-4 py-2">
-                                <a href="<?php echo $changeSecretUrl ?>?id=<?php echo $education["id"]; ?>">
+                                <a href="<?php echo $changeSecretUrl ?>?id=<?php echo $user["id"]; ?>">
                                     <img src=" /images/lock.svg" alt="Reset Password" />
                                 </a>
                             </td>
                             <td class="px-4 py-2">
-                                <a class="underline" href="<?php echo $detailUrl ?>?id=<?php echo $education["id"]; ?>">
+                                <a class="underline" href="<?php echo $detailUrl ?>?id=<?php echo $user["id"]; ?>">
                                     <?php echo $user["email"]; ?>
                                 </a>
                             </td>

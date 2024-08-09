@@ -5,7 +5,7 @@ use Ramsey\Uuid\Uuid;
 
 class Education
 {
-    // insert voegt één nieuwe rol toe aan de tabel education.
+    // insert voegt één nieuwe opleiding toe aan de tabel education.
     // Er wordt een UUIDv4 gegeneert als unieke ID.
     // Deze UUID wordt opgeslagen string (niet de snelste methode).
     public static function insert(
