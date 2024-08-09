@@ -1,7 +1,7 @@
 <?php
 
-// url: /admin/educations/edit
-// Dit is de controller-pagina voor het bewerkingsformulier van een bestaande opleiding.
+// url: /admin/educations/delete
+// Dit is de controller-pagina voor het verwijderen van een opleiding.
 
 // Globale variablen en functies die op bijna alle pagina's
 // gebruikt worden.
@@ -13,11 +13,11 @@ require $_SERVER['DOCUMENT_ROOT'] . '/errors/default.php';
 // heeft. De rollen "applicatiebeheerder" en "administrator" hebben toegang. 
 
 // 2. INPUT CONTROLEREN
-// Controleren of de pagina is aangeroepen met behulp van form GET
+// Controleren of de pagina is aangeroepen met behulp van GET link.
 // en of the variabelen wel bestaan.
 // htmlspecialchars() wordt gebruikt om cross site scripting (xss) te voorkomen.
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    // Veldnaam id opvangen en opslaan.
+    // Verdnaam id opvangen en opslaan.
     if(isset($_GET["id"])) {
         $id = htmlspecialchars($_GET["id"]);
     }
@@ -34,29 +34,21 @@ else {
 // 3. CONTROLLER FUNCTIES
 // Hier vinden alle acties plaats die moeten gebeuren voordat een nieuwe pagina
 // wordt getoond.
-// Informatie van bestaande opleiding wordt opgehaald uit de database.
 require $_SERVER['DOCUMENT_ROOT'] . '/models/Educations.php';
 
-$education = Education::select($id);
+$result = Education::delete($id);
 
 // Controleren of het gelukt is om een opleiding toe te voegen aan de database.
-if (!$education) {
-    $message = "Het is niet gelukt om een opleiding met de id $id op te halen.";
+if ($result) {
+    $message = "Opleiding met de id $id is verwijderd.";
+} else {
+    $message = "Het is niet gelukt om deze opleiding te verwijderen.";
     callErrorPage($message);
 }
 
 // 4. VIEWS OPHALEN (REDIRECT)
-// De HTML-pagina (view) wordt hier opgehaald.
-// $title is de titel van de html pagina.
-$title = "Formulier opleiding bewerken";
-$editmode = true;
-$actionUrl = "/admin/educations/update";
-$idValue = $education["id"];
-$creboNumberValue = $education["creboNumber"];
-$nameValue = $education["name"];
-$levelValue = $education["level"];
-$descriptionValue = $education["description"];
-$registerUntilValue = $education["registerUntil"];
-$graduateUntilValue = $education["graduateUntil"];
-$editUrl = "/admin/educations/edit";
-require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/educations/form.php';
+// Er wordt hier een redirect gedaan naar het overzicht van alle opleidingen.
+// Het bericht de gebruiker is toegevoegd wordt meegestuurd als variabele.
+$url = "/admin/educations/overview/?message=$message";
+header('Location: ' . $url, true);
+exit();

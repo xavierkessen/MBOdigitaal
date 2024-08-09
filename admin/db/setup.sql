@@ -20,8 +20,6 @@ CREATE TABLE `user`(
     PRIMARY KEY(`id`)
 );
 ALTER TABLE
-    `user` ADD UNIQUE `user_firstname_unique`(`firstName`);
-ALTER TABLE
     `user` ADD UNIQUE `user_email_unique`(`email`);
 CREATE TABLE `education`(
     `id` CHAR(36) NOT NULL,
