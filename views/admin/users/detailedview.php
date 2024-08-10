@@ -94,7 +94,7 @@
                     </label>
                 </div>
                 <div class="md:w-2/3">
-                    <?php echo isset($changeSecretAtLogon) ? "Ja" : "Nee" ?>
+                    <?php echo $changeSecretAtLogonValue == 1 ? "Ja" : "Nee" ?>
                 </div>
             </div>
             <div class="md:flex md:items-center mb-6">
@@ -104,7 +104,7 @@
                     </label>
                 </div>
                 <div class="md:w-2/3">
-                    <?php echo isset($enabledValue) ? "Ja" : "Nee" ?>
+                    <?php echo $enabledValue == 1 ? "Ja" : "Nee" ?>
                 </div>
             </div>
             <div class="md:flex md:items-center mb-6">

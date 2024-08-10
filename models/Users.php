@@ -40,7 +40,7 @@ class Users
         if (
             $stmt->execute([
                 $id,
-                $duoNumber,
+                $duoNumber == "" ? 0 : (int)$duoNumber,
                 $firstName,
                 $prefix,
                 $lastName,
@@ -108,7 +108,6 @@ class Users
         $firstName,
         $prefix,
         $lastName,
-        $secret,
         $email,
         $phone,
         $changeSecretAtLogon,
@@ -122,7 +121,7 @@ class Users
         $modificationDate = date('Y-m-d H:i:s');
 
         $sql_update_user_by_id = "UPDATE user
-        SET duoNumber=?, firstName=?, prefix=?, lastName=?, secret=?, email=?, phone=?, changeSecretAtLogon=?, enabled=?, roleId=?, educationId=?, cohort=?, modifcationDate=?
+        SET duoNumber=?, firstName=?, prefix=?, lastName=?, email=?, phone=?, changeSecretAtLogon=?, enabled=?, roleId=?, educationId=?, cohort=?, modificationDate=?
         WHERE id=?";
 
         $stmt = $db->prepare($sql_update_user_by_id);
@@ -133,7 +132,6 @@ class Users
                 $firstName,
                 $prefix,
                 $lastName,
-                $secret,
                 $email,
                 $phone,
                 $changeSecretAtLogon,

@@ -1,8 +1,8 @@
 <?php
 
-// url: /admin/educations/update
+// url: /admin/users/update
 // Dit is de controller-pagina voor het updaten van een bestaande
-// opleiding afkomstig van het formulier /admin/educations/edit.
+// gebruiker afkomstig van het formulier /admin/users/edit.
 
 // Globale variablen en functies die op bijna alle pagina's
 // gebruikt worden.
@@ -22,55 +22,93 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["id"])) {
         $id = htmlspecialchars($_POST["id"]);
     } else {
-        $errorMessage = "ID van de opleiding ontbreekt.";
+        $errorMessage = "Id is niet ingevuld of ontbreekt.";
         callErrorPage($errorMessage);
     }
 
-    // Veldnaam creboNumber opvangen en opslaan.
-    if (isset($_POST["creboNumber"])) {
-        $creboNumber = htmlspecialchars($_POST["creboNumber"]);
+    // Veldnaam duoNumber opvangen en opslaan.
+    if (isset($_POST["duoNumber"])) {
+        $duoNumber = htmlspecialchars($_POST["duoNumber"]);
     } else {
-        $errorMessage = "Crebo nummer van de opleiding ontbreekt.";
+        $errorMessage = "DUO nummer is niet ingevuld of ontbreekt.";
         callErrorPage($errorMessage);
     }
 
-    // Veldnaam name opvangen en opslaan.
-    if (isset($_POST["name"])) {
-        $name = htmlspecialchars($_POST["name"]);
+    // Veldnaam firstName opvangen en opslaan.
+    if (isset($_POST["firstName"])) {
+        $firstName = htmlspecialchars($_POST["firstName"]);
     } else {
-        $errorMessage = "Naam van de opleiding ontbreekt.";
+        $errorMessage = "Voornaam is niet ingevuld of ontbreekt.";
         callErrorPage($errorMessage);
     }
 
-    // Veldnaam level opvangen en opslaan.
-    if (isset($_POST["level"])) {
-        $level = htmlspecialchars($_POST["level"]);
+    // Veldnaam prefix opvangen en opslaan.
+    if (isset($_POST["prefix"])) {
+        $prefix = htmlspecialchars($_POST["prefix"]);
     } else {
-        $errorMessage = "Niveau van de opleiding ontbreekt.";
+        $errorMessage = "Tussenvoegsels is niet ingevuld of ontbreekt.";
         callErrorPage($errorMessage);
     }
 
-    // Veldnaam description opvangen en opslaan.
-    if (isset($_POST["description"])) {
-        $description = htmlspecialchars($_POST["description"]);
+    // Veldnaam lastName opvangen en opslaan.
+    if (isset($_POST["lastName"])) {
+        $lastName = htmlspecialchars($_POST["lastName"]);
     } else {
-        $errorMessage = "Omschrijving van de opleiding ontbreekt.";
+        $errorMessage = "Achternaam is niet ingevuld of ontbreekt.";
         callErrorPage($errorMessage);
     }
 
-    // Veldnaam registerUntil opvangen en opslaan.
-    if (isset($_POST["registerUntil"])) {
-        $registerUntil = htmlspecialchars($_POST["registerUntil"]);
+    // Veldnaam email opvangen en opslaan.
+    if (isset($_POST["email"])) {
+        $email = htmlspecialchars($_POST["email"]);
     } else {
-        $errorMessage = "Inschrijfdatum van de opleiding ontbreekt.";
+        $errorMessage = "Email is niet ingevuld of ontbreekt.";
         callErrorPage($errorMessage);
     }
 
-    // Veldnaam graduateUntil opvangen en opslaan.
-    if (isset($_POST["graduateUntil"])) {
-        $graduateUntil = htmlspecialchars($_POST["graduateUntil"]);
+    // Veldnaam phone opvangen en opslaan.
+    if (isset($_POST["phone"])) {
+        $phone = htmlspecialchars($_POST["phone"]);
     } else {
-        $errorMessage = "Diplomeren tot datum van de opleiding ontbreekt.";
+        $errorMessage = "Telefoonnummer is niet ingevuld of ontbreekt.";
+        callErrorPage($errorMessage);
+    }
+
+    // Veldnaam changeSecretAtLogon opvangen en opslaan.
+    if (isset($_POST["changeSecretAtLogon"])) {
+        $changeSecretAtLogon = 1;
+    } else {
+        $changeSecretAtLogon = 0;
+    }
+
+    // Veldnaam enabled opvangen en opslaan.
+    if (isset($_POST["enabled"])) {
+        $enabled = 1;
+    } else {
+        $enabled = 0;
+    }
+
+    // Veldnaam roleId opvangen en opslaan.
+    if (isset($_POST["roleId"])) {
+        $roleId = htmlspecialchars($_POST["roleId"]);
+    } else {
+        $errorMessage = "Id van de rol is niet ingevuld of ontbreekt.";
+        callErrorPage($errorMessage);
+    }
+
+    // Veldnaam educationId opvangen en opslaan.
+    if (isset($_POST["educationId"])) {
+        $educationId = htmlspecialchars($_POST["educationId"]);
+    } else {
+        $errorMessage = "Id van de opleiding is niet ingevuld of ontbreekt.";
+        callErrorPage($errorMessage);
+    }
+
+    // Veldnaam cohort opvangen en opslaan.
+    if (isset($_POST["cohort"])) {
+        $cohort = (int) htmlspecialchars($_POST["cohort"]);
+    } else {
+        $errorMessage = "Cohort is niet ingevuld of ontbreekt.";
         callErrorPage($errorMessage);
     }
 
@@ -82,29 +120,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // 3. CONTROLLER FUNCTIES
 // Hier vinden alle acties plaats die moeten gebeuren voordat een nieuwe pagina
 // wordt getoond.
-require $_SERVER['DOCUMENT_ROOT'] . '/models/Educations.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/models/Users.php';
 
-$result = Education::update(
+$result = Users::update(
     $id,
-    $creboNumber,
-    $name,
-    $level,
-    $description,
-    $registerUntil,
-    $graduateUntil
+    $duoNumber,
+    $firstName,
+    $prefix,
+    $lastName,
+    $email,
+    $phone,
+    $changeSecretAtLogon,
+    $enabled,
+    $roleId,
+    $educationId,
+    $cohort,
 );
 
-// Controleren of het gelukt is om een opleiding toe te voegen aan de database.
+// Controleren of het gelukt is om een gebruiker toe te voegen aan de database.
 if ($result) {
-    $message = "Opleiding met naam $name en het niveau $level is bewerkt.";
+    $message = "Gebruiker met achternaam $lastName en emailadres $email is bewerkt.";
 } else {
-    $message = "Het is niet gelukt om de opleiding met de naam $name te bewerken.";
+    $message = "Het is niet gelukt om de gebruiker met de achternaam $lastName te bewerken.";
     callErrorPage($message);
 }
 
 // 4. VIEWS OPHALEN (REDIRECT)
-// Er wordt hier een redirect gedaan naar het overzicht van alle opleidingen.
-// Het bericht de gebruiker is toegevoegd wordt meegestuurd als variabele.
-$url = "/admin/educations/overview/?message=$message";
+// Er wordt hier een redirect gedaan naar het overzicht van alle gebruikers.
+// Het bericht de gebruiker is bewerkt wordt meegestuurd als variabele.
+$url = "/admin/users/overview/?message=$message";
 header('Location: ' . $url, true);
 exit();

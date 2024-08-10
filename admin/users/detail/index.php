@@ -59,6 +59,7 @@ $phoneValue = $user["phone"];
 $changeSecretAtLogonValue = $user["changeSecretAtLogon"];
 $enabledValue = $user["enabled"];
 $roleIdValue = $user["roleId"];
+$educationIdValue = $user["educationId"];
 $educationNameValue = $education["name"];
 $roleNameValue = $role["name"];
 $cohortValue = $user["cohort"];

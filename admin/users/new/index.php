@@ -33,4 +33,6 @@ $title = "Gebruiker toevoegen";
 $editmode = false;
 $actionUrl = "/admin/users/add";
 $overviewUrl = "/admin/users/overview";
+$changeSecretAtLogonValue = 1;
+$enabledValue = 1;
 require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/users/form.php';

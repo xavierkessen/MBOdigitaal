@@ -66,6 +66,7 @@ $phoneValue = $user["phone"];
 $changeSecretAtLogonValue = $user["changeSecretAtLogon"];
 $enabledValue = $user["enabled"];
 $roleIdValue = $user["roleId"];
+$educationIdValue = $user["educationId"];
 $cohortValue = $user["cohort"];
 $creationDateValue = $user["creationDate"];
 $modificationDateValue = $user["modificationDate"];
