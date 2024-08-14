@@ -23,7 +23,6 @@ require $_SERVER['DOCUMENT_ROOT'] . '/errors/default.php';
 // wordt getoond.
 
 // 4. VIEWS OPHALEN (REDIRECT)
-// Er wordt hier een redirect gedaan naar het overzicht van alle opleidingen.
-// Het bericht de gebruiker is toegevoegd wordt meegestuurd als variabele.
+// Het view van het dashboard pagina wordt opgehaald.
 $title = "Adminpanel MBO Go Digital";
 require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/home.php';
