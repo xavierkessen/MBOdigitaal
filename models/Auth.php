@@ -32,15 +32,18 @@ class Auth
                 $jwtkey = "ClqFN0FlSkOHsyr8OVcowv8YMRSQLtRdJaJ3laoOkRbG0MyQXMXU6xmUdD1vBVj3";
                 // Aanmaken van de Jason Webtoken (JWT).
                 // Geldigheid van het token is 1 uur.
+
+                require $_SERVER['DOCUMENT_ROOT'] . '/models/Roles.php';
+                $role = Role::select($user["roleId"]);
+
                 $token = JWT::encode(
                     array(
                         'iat' => time(),
                         'nbf' => time(),
-                        'exp' => time() + 3600,
+                        'exp' => time() + 8 * 3600,
                         'data' => array(
                             'id' => $user['id'],
-                            'roleId' => $user['roleId'],
-                            'educationId' => $user['educationId']
+                            'roleName' => $role['name']
                         )
                     ),
                     $jwtkey,
@@ -66,21 +69,40 @@ class Auth
         }
     }
 
-    public static function check($roles) {
-        if(isset($_COOKIE['token'])){
+    public static function check($roles)
+    {
+        if (isset($_COOKIE['token'])) {
             $token = $_COOKIE['token'];
             $jwtkey = "ClqFN0FlSkOHsyr8OVcowv8YMRSQLtRdJaJ3laoOkRbG0MyQXMXU6xmUdD1vBVj3";
             $decoded = JWT::decode($token, new Key($jwtkey, 'HS256'));
-            echo $decoded->data->roleId;
-            foreach ($roles as $role) {
-                echo $role;
+
+            // Controleren of het token nog geldig is.
+            $exp = (int) $decoded->exp;
+
+            if ($exp < time()) {
+                callErrorPage("U moet opnieuw inloggen. Uw sessie is verlopen.");
             }
+
+            // Controleren of de rol van de gebruiker is toegestaan.
+            $tokenRole = $decoded->data->roleName;
+            foreach ($roles as $role) {
+                if (
+                    strtolower($tokenRole) === strtolower($role)
+                ) {
+                    return true;
+                }
+
+            }
+
+            callErrorPage("U hebt niet de juiste rechten om deze pagina te bezoeken.");
+
         } else {
             callErrorPage("U bent niet ingelogd.");
         }
     }
 
-    public static function logout() {
-        setcookie("token", "", time() - 3600, "/", "", true, true);
+    public static function logout()
+    {
+        setcookie("token", "", time() - 8 * 3600, "/", "", true, true);
     }
 }

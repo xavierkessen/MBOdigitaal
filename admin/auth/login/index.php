@@ -12,8 +12,6 @@ require $_SERVER['DOCUMENT_ROOT'] . '/errors/default.php';
 // 1. INLOGGEN CONTROLEREN
 // Hier wordt gecontroleerd of de gebruiker is ingelogd en de juiste rechten
 // heeft. De rollen "applicatiebeheerder" en "administrator" hebben toegang.
-require $_SERVER['DOCUMENT_ROOT'] . '/models/Auth.php';
-Auth::check(["applicatiebeheerder", "administrator"]);
 
 // 2. INPUT CONTROLEREN
 // Controleren of de pagina is aangeroepen met behulp van form POST
@@ -26,6 +24,5 @@ Auth::check(["applicatiebeheerder", "administrator"]);
 
 // 4. VIEWS OPHALEN (REDIRECT)
 // Het view van het dashboard pagina wordt opgehaald.
-$url = "/admin/users/overview";
-header('Location: ' . $url, true);
-exit();
+$title = "Inloggen op Adminpanel MBO Go Digital";
+require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/auth/login.php';

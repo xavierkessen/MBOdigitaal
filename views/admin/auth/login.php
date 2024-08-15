@@ -37,8 +37,7 @@
                     <div class="flex items-center justify-between">
                         <button
                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                            type="submit"
-                            name="login">
+                            type="submit" name="login">
                             Sign In
                         </button>
                     </div>
@@ -46,22 +45,18 @@
             </div>
         </div>
     </div>
-    
+
     <?php require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/templates/topbar.php' ?>
-
-    <div class="mt-6 mx-auto px-4 bg-stone-950">
-
-        <!-- Button to open the modal -->
-        <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded" onclick="toggleModal('loginModal')">
-            Inloggen
-        </button>
-
-    </div>
 
     <script>
         function toggleModal(modalID) {
             document.getElementById(modalID).classList.toggle('hidden');
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            toggleModal('loginModal');
+            console.log("DOM is fully loaded and parsed");
+        });
     </script>
 
 </body>

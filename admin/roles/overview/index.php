@@ -11,11 +11,13 @@ require $_SERVER['DOCUMENT_ROOT'] . '/config/globalvars.php';
 // 1. INLOGGEN CONTROLEREN
 // Hier wordt gecontroleerd of de gebruiker is ingelogd en de juiste rechten
 // heeft. De rollen "applicatiebeheerder" en "administrator" hebben toegang.
+require $_SERVER['DOCUMENT_ROOT'] . '/models/Auth.php';
+Auth::check(["applicatiebeheerder", "administrator"]);
 
 // 2. INPUT CONTROLEREN
 // Controleren of de pagina is aangeroepen met behulp van een link (GET).
 // Op dit moment hier niet van toepassing.
-// Na het bewerken van 
+// Na het toevoegen, bewerken of verwijderen wordt deze pagina aangeroepen. 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // Message afkomst van andere pagina.
     if(isset($_GET["message"])) {

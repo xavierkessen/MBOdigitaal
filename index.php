@@ -10,10 +10,12 @@
 
 // 1. VARIABELEN EN DATABASE CONNECTIE
 require $_SERVER['DOCUMENT_ROOT'] . '/config/globalvars.php';
-$db = require __DOCUMENTROOT__ . '/database/dbconnection.php';
 
 // 2. ACTIES
 // Er zijn nu geen acties.
+// Een lijst van alle opleidingen wordt hier opgehaald.
+require $_SERVER['DOCUMENT_ROOT'] . '/models/Educations.php';
+$educations = Education::selectAll();
 
 // 3. VIEWS OPHALEN
 // De view voor de homepage wordt hier opgehaald.

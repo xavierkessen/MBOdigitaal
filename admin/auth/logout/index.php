@@ -18,14 +18,14 @@ Auth::check(["applicatiebeheerder", "administrator"]);
 // 2. INPUT CONTROLEREN
 // Controleren of de pagina is aangeroepen met behulp van form POST
 // en of the variabelen wel bestaan.
-// htmlspecialchars() wordt gebruikt om cross site scripting (xss) te voorkomen.
 
 // 3. CONTROLLER FUNCTIES
 // Hier vinden alle acties plaats die moeten gebeuren voordat een nieuwe pagina
 // wordt getoond.
+Auth::logout();
 
 // 4. VIEWS OPHALEN (REDIRECT)
 // Het view van het dashboard pagina wordt opgehaald.
-$url = "/admin/users/overview";
+$url = "/";
 header('Location: ' . $url, true);
 exit();
