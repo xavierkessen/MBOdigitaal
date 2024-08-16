@@ -6,6 +6,41 @@
 </head>
 
 <body class="bg-stone-950">
+    <!-- Modal voor het resetten van wachtwoorden -->
+    <div id="loginModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+            <!-- Modal header -->
+            <div class="flex justify-between items-center border-b pb-2">
+                <h3 class="text-xl font-semibold">Wachtwoord wijzigen</h3>
+                <button class="text-gray-500 hover:text-gray-700" onclick="toggleModal('loginModal')">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="mt-4">
+                <form method="POST" action="<?php echo $changeSecretUrl ?>">
+                    <input type="hidden" id="id" name="id">
+                    <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                            Nieuw wachtwoord
+                        </label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                            id="password" name="password" type="password" placeholder="******************">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            type="submit" name="login">
+                            Sign In
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
     <?php require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/templates/topbar.php' ?>
 
     <div class="mt-6 mx-auto px-4 bg-stone-950">
@@ -50,7 +85,10 @@
                                 </a>
                             </td>
                             <td class="px-4 py-2">
-                                <a href="<?php echo $changeSecretUrl ?>?id=<?php echo $user["id"]; ?>">
+                                <?php 
+                                    $userIdParameter = "'" . $user['id'] . "'";
+                                ?>
+                                <a onclick="toggleModal('loginModal', <?php echo $userIdParameter ?>)">
                                     <img src=" /images/lock.svg" alt="Reset Password" />
                                 </a>
                             </td>
@@ -70,6 +108,15 @@
             </table>
         </div>
     </div>
+
+    <script>
+        function toggleModal(modalID, id) {
+            console.log("modalID: " + modalID);
+            console.log("id: " + id);
+            document.getElementById('id').value = id;
+            document.getElementById(modalID).classList.toggle('hidden');
+        }
+    </script>
 
 </body>
 

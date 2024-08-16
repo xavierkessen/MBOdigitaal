@@ -17,6 +17,12 @@ require $_SERVER['DOCUMENT_ROOT'] . '/errors/default.php';
 // Controleren of de pagina is aangeroepen met behulp van form POST
 // en of the variabelen wel bestaan.
 // htmlspecialchars() wordt gebruikt om cross site scripting (xss) te voorkomen.
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    // Message afkomst van andere pagina.
+    if(isset($_GET["message"])) {
+        $message = htmlspecialchars($_GET["message"]);
+    }
+}
 
 // 3. CONTROLLER FUNCTIES
 // Hier vinden alle acties plaats die moeten gebeuren voordat een nieuwe pagina

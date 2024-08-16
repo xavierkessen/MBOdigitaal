@@ -3,7 +3,6 @@
 
 <head>
     <?php require $_SERVER['DOCUMENT_ROOT'] . '/views/templates/head.php' ?>
-    <link rel="stylesheet" href="/css/modal.css">
 </head>
 
 <body class="bg-stone-950">
@@ -14,6 +13,14 @@
             <div class="flex justify-between items-center border-b pb-2">
                 <h3 class="text-xl font-semibold">Login</h3>
                 <button class="text-gray-500 hover:text-gray-700" onclick="toggleModal('loginModal')">&times;</button>
+            </div>
+
+            <div class="m-2 font-bold text-red-400">
+                <?php
+                if (isset($message)) {
+                    echo $message;
+                }
+                ?>
             </div>
             <!-- Modal body -->
             <div class="mt-4">

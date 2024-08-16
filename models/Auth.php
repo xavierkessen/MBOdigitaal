@@ -25,6 +25,10 @@ class Auth
             $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $user = $users[0];
 
+            if (!$user) {
+                callLoginPage("Er is geen gebruiker gevonden met dit emailadres.");
+            }
+
             // Controleren of het gegeven wachtwoord overeen komt het het opgeslagen
             // wachtwoord.
             if (password_verify($secret, $user['secret'])) {
@@ -62,10 +66,10 @@ class Auth
                 );
                 return true;
             } else {
-                return false;
+                callLoginPage("U inloggevens zijn niet juist.");
             }
         } else {
-            return false;
+            callErrorPage("Het is niet gelukt om uw gegevens te controleren.");
         }
     }
 
@@ -80,7 +84,7 @@ class Auth
             $exp = (int) $decoded->exp;
 
             if ($exp < time()) {
-                callErrorPage("U moet opnieuw inloggen. Uw sessie is verlopen.");
+                callLoginPage("U moet opnieuw inloggen. Uw sessie is verlopen.");
             }
 
             // Controleren of de rol van de gebruiker is toegestaan.
@@ -94,10 +98,10 @@ class Auth
 
             }
 
-            callErrorPage("U hebt niet de juiste rechten om deze pagina te bezoeken.");
+            callLoginPage("U hebt niet de juiste rechten om deze pagina te bezoeken.");
 
         } else {
-            callErrorPage("U bent niet ingelogd.");
+            callLoginPage("U bent niet ingelogd.");
         }
     }
 

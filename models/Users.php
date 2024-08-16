@@ -166,4 +166,30 @@ class Users
         }
     }
 
+    public static function changeSecret($id, $newSecret) {
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+
+        $modificationDate = date('Y-m-d H:i:s');
+        $encryptedSecret = password_hash($newSecret, PASSWORD_DEFAULT);
+
+        $sql_update_user_secret_by_id = "UPDATE user
+        SET secret=?, modificationDate=?
+        WHERE id=?";
+
+        $stmt = $db->prepare($sql_update_user_secret_by_id);
+
+        if (
+            $stmt->execute([
+                $encryptedSecret,
+                $modificationDate,
+                $id
+            ])
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
 }
