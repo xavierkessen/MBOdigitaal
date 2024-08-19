@@ -18,7 +18,7 @@
                 <button
                     class=" mt-6 shadow bg-stone-700 hover:bg-stone-300 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                     type="submit">
-                    Opleiding bewerken
+                    Gebruiker bewerken
                 </button>
                 <button
                     class="shadow bg-stone-700 hover:bg-stone-300 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"

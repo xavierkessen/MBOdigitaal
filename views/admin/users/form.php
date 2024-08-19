@@ -11,7 +11,7 @@
     <div class="mt-6 mx-auto px-4 bg-stone-950">
         <?php require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/templates/menu.php' ?>
         <div class="p-6 text-medium text-stone-50 rounded w-full md:w-3/5 lg:w-2/5 min-h-screen">
-            <h3 class="text-lg font-bold text-stone-100 text-white mb-2">Opleiding
+            <h3 class="text-lg font-bold text-stone-100 text-white mb-2">Gebruiker
                 <?php echo $editmode ? "bewerken" : "toevoegen" ?>
             </h3>
             <p class="mb-2"></p>
