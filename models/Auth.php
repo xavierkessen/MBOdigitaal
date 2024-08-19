@@ -5,6 +5,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 use Firebase\JWT\JWT;
 use Firebase\JWT\key;
 
+$db = require_once $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+
 class Auth
 {
     // login controleert de gebruikersnaam (emailadres) en het wachtwoord (secret)
@@ -35,9 +37,10 @@ class Auth
 
                 $jwtkey = "ClqFN0FlSkOHsyr8OVcowv8YMRSQLtRdJaJ3laoOkRbG0MyQXMXU6xmUdD1vBVj3";
                 // Aanmaken van de Jason Webtoken (JWT).
-                // Geldigheid van het token is 1 uur.
+                // Geldigheid van het token is 8 uur.
 
                 require $_SERVER['DOCUMENT_ROOT'] . '/models/Roles.php';
+
                 $role = Role::select($user["roleId"]);
 
                 $token = JWT::encode(
