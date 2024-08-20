@@ -140,10 +140,10 @@ $result = Users::insert(
 );
 
 // // Controleren of het gelukt is om een gebruiker toe te voegen aan de database.
-if ($result) {
+if ($result === true) {
     $message = "Gebruiker met DUO nummer $duoNumber en achternaam $lastName is toegevoegd.";
 } else {
-    $message = "Het is niet gelukt om een nieuwe gebruiker toe te voegen.";
+    $message = $result;
     callErrorPage($message);
 }
 

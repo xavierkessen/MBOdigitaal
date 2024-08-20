@@ -54,20 +54,22 @@
                 }
                 ?>
             </p>
-            <form method="POST" action="<?php echo $newUrl ?>">
-                <button
-                    class=" mt-6 shadow bg-stone-700 hover:bg-stone-300 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                    type="submit">
-                    Gebruiker toevoegen
-                </button>
-            </form>
-            <form method="POST" action="<?php echo $uploadFormUrl ?>">
-                <button
-                    class=" mt-6 shadow bg-stone-700 hover:bg-stone-300 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                    type="submit">
-                    Eduarte upload
-                </button>
-            </form>
+            <div class="flex space-x-4">
+                <form method="POST" action="<?php echo $newUrl ?>">
+                    <button
+                        class=" mt-6 shadow bg-stone-700 hover:bg-stone-300 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                        type="submit">
+                        Gebruiker toevoegen
+                    </button>
+                </form>
+                <form method="POST" action="<?php echo $uploadFormUrl ?>">
+                    <button
+                        class=" mt-6 shadow bg-stone-700 hover:bg-stone-300 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                        type="submit">
+                        Eduarte upload
+                    </button>
+                </form>
+            </div>
             <br>
             <table class="table-auto w-full bg-gray-800 text-white">
                 <thead>
@@ -92,8 +94,8 @@
                                 </a>
                             </td>
                             <td class="px-4 py-2">
-                                <?php 
-                                    $userIdParameter = "'" . $user['id'] . "'";
+                                <?php
+                                $userIdParameter = "'" . $user['id'] . "'";
                                 ?>
                                 <a onclick="toggleModal('loginModal', <?php echo $userIdParameter ?>)">
                                     <img src=" /images/lock.svg" alt="Reset Password" />

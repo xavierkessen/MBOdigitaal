@@ -24,6 +24,10 @@ class Users
     ) {
         $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
+        if (Users::checkEmailIsUnique($email) === false) {
+            return "Emailadres bestaat al is en is dus niet uniek.";
+        }
+
         $creationDate = date('Y-m-d H:i:s');
         $modificationDate = date('Y-m-d H:i:s');
 
@@ -40,7 +44,7 @@ class Users
         if (
             $stmt->execute([
                 $id,
-                $duoNumber == "" ? 0 : (int)$duoNumber,
+                $duoNumber == "" ? 0 : (int) $duoNumber,
                 $firstName,
                 $prefix,
                 $lastName,
@@ -166,7 +170,8 @@ class Users
         }
     }
 
-    public static function changeSecret($id, $newSecret) {
+    public static function changeSecret($id, $newSecret)
+    {
         $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
         $modificationDate = date('Y-m-d H:i:s');
@@ -192,4 +197,108 @@ class Users
 
     }
 
+    public static function resetSecret($id, $oldSecret, $newSecret)
+    {
+
+        if (Users::checkSecret($id, $oldSecret)) {
+            Users::changeSecret($id, $newSecret);
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public static function eduarteUpload(
+        $dest_path,
+        $secret,
+        $changeSecretAtLogon,
+        $enabled,
+        $roleId,
+        $educationId,
+        $cohort
+    ) {
+        if (($handle = fopen($dest_path, "r")) !== FALSE) {
+            while (($studentRow = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                $studentRowArray = explode(";", $studentRow[0]);
+
+                $duoNumber = $studentRowArray[0];
+                $firstName = $studentRowArray[1];
+                $prefix = $studentRowArray[2];
+                $lastName = $studentRowArray[3];
+                $email = $studentRowArray[9];
+                $phone = "";
+
+                if (Users::checkEmailIsUnique($email)) {
+                    if (strtolower($firstName) != strtolower("roepnaam")) {
+                        $result = Users::insert(
+                            $duoNumber,
+                            $firstName,
+                            $prefix,
+                            $lastName,
+                            $secret,
+                            $email,
+                            $phone,
+                            $changeSecretAtLogon,
+                            $enabled,
+                            $roleId,
+                            $educationId,
+                            $cohort
+                        );
+
+                        // // Controleren of het gelukt is om een gebruiker toe te voegen aan de database.
+                        if ($result !== true) {
+                            return false;
+                        }
+                    }
+                }
+            }
+            fclose($handle);
+            unlink($dest_path);
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    private static function checkSecret($id, $secret)
+    {
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+
+        $sql_select_users_by_id = "SELECT id, secret FROM user WHERE id=?;";
+
+        $stmt = $db->prepare($sql_select_users_by_id);
+
+        if ($stmt->execute([$id])) {
+            $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($users as $user) {
+                
+                if (password_verify($secret, $user['secret'])) {
+                    return true;
+                }
+                else {
+                    return true;
+                }
+            }
+        } 
+    }
+
+    private static function checkEmailIsUnique($email)
+    {
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+
+        $sql_select_users_by_email = "SELECT * FROM user WHERE email=?;";
+        echo $sql_select_users_by_email;
+
+        $stmt = $db->prepare($sql_select_users_by_email);
+        $stmt->execute([$email]);
+
+        if ($stmt->rowCount() > 0) {
+            return false;           // Email is niet uniek.
+        } else {
+            return true;            // Email is wel uniek.
+        }
+    }
 }

@@ -5,7 +5,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 use Firebase\JWT\JWT;
 use Firebase\JWT\key;
 
-$db = require_once $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
 class Auth
 {
@@ -61,7 +60,7 @@ class Auth
                 setcookie(
                     "token",
                     $token,
-                    time() + 3600,
+                    time() + 8 * 3600,
                     "/",
                     "",
                     true,
@@ -76,7 +75,7 @@ class Auth
         }
     }
 
-    public static function check($roles)
+    public static function check($rolesOrIds)
     {
         if (isset($_COOKIE['token'])) {
             $token = $_COOKIE['token'];
@@ -92,13 +91,20 @@ class Auth
 
             // Controleren of de rol van de gebruiker is toegestaan.
             $tokenRole = $decoded->data->roleName;
-            foreach ($roles as $role) {
+            foreach ($rolesOrIds as $role) {
                 if (
                     strtolower($tokenRole) === strtolower($role)
                 ) {
                     return true;
                 }
+            }
 
+            // Controleren of de ID van de gebruiker is toegestaan.
+            $tokenId = $decoded->data->id;
+            foreach ($rolesOrIds as $id) {
+                if ($tokenId === $id) {
+                    return true;
+                }
             }
 
             callLoginPage("U hebt niet de juiste rechten om deze pagina te bezoeken.");

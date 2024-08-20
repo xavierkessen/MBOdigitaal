@@ -103,44 +103,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Hier vinden alle acties plaats die moeten gebeuren voordat een nieuwe pagina
 // wordt getoond.
 require $_SERVER['DOCUMENT_ROOT'] . '/models/Users.php';
+$result = Users::eduarteUpload(
+    $dest_path,
+    $secret,
+    $changeSecretAtLogon,
+    $enabled,
+    $roleId,
+    $educationId,
+    $cohort
+);
 
-if (($handle = fopen($dest_path, "r")) !== FALSE) {
-    while (($studentRow = fgetcsv($handle, 1000, ",")) !== FALSE) {
-        $studentRowArray = explode(";", $studentRow[0]);
-
-        $duoNumber = $studentRowArray[0];
-        $firstName = $studentRowArray[1];
-        $prefix = $studentRowArray[2];
-        $lastName = $studentRowArray[3];
-        $email = $studentRowArray[9];
-        $phone = "";
-
-        if (strtolower($firstName) != strtolower("roepnaam")) {
-            $result = Users::insert(
-                $duoNumber,
-                $firstName,
-                $prefix,
-                $lastName,
-                $secret,
-                $email,
-                $phone,
-                $changeSecretAtLogon,
-                $enabled,
-                $roleId,
-                $educationId,
-                $cohort
-            );
-
-            // // Controleren of het gelukt is om een gebruiker toe te voegen aan de database.
-            if ($result) {
-                $message = "Het is gelukt om gebruikers toe te voegen.";
-            } else {
-                $message = "Het is niet gelukt om een nieuwe gebruiker toe te voegen.";
-                callErrorPage($message);
-            }
-        }
-    }
-    fclose($handle);
+if ($result === true) {
+    $message = "CSV bestand is geimporteerd.";
+} else {
+    $message = "Er ging iets fout tijdens het importeren van het CSV bestand.";
 }
 
 
