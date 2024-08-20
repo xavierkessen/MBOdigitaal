@@ -1,8 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
-$db = require_once $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
-
 use Ramsey\Uuid\Uuid;
 
 class Role
@@ -14,7 +12,7 @@ class Role
         $name,
         $level,
     ) {
-        global $db;
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
         // Generate a version 4 (random) UUID
         $roleId = Uuid::uuid4();
@@ -38,7 +36,7 @@ class Role
     // select selecteert één rol op basis van een gegeven id.
     // Er wordt een associative array ($role["id"]) van de rol gereturneerd.
     public static function select($id) {
-        global $db;
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
         $sql_select_role_by_id = "SELECT * FROM role WHERE id=?;";
 
@@ -56,7 +54,7 @@ class Role
     // selectAll selecteert alle rollen. Geordend op level.
     // Er wordt een associative array met meerdere rijen gereturneerd.
     public static function selectAll() {
-        global $db;
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
         $sql_selectAll_roles = "SELECT * FROM role ORDER by level;";
         
@@ -76,7 +74,7 @@ class Role
         $name,
         $level
     ){
-        global $db;
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
         $sql_update_role_by_id = "UPDATE role
         SET name=?, level=?
@@ -99,7 +97,7 @@ class Role
     // delete verwijdert een record uit de tabel role met een bepaald id.
     // De functie returneert true als dit gelukt is en false als dit niet gelukt is.
     public static function delete($id) {
-        global $db;
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
         $sql_delete_rol_by_id = "DELETE FROM role WHERE id=?;";
         $stmt = $db->prepare($sql_delete_rol_by_id);

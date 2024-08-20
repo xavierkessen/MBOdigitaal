@@ -1,8 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
-$db = require_once $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
-
 use Ramsey\Uuid\Uuid;
 
 class Users
@@ -68,7 +66,7 @@ class Users
     // Er wordt een associative array ($user["id"]) van de gebruiker gereturneerd.
     public static function select($id)
     {
-        global $db;
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
         $sql_select_users_by_id = "SELECT * FROM user WHERE id=?;";
 
@@ -89,7 +87,7 @@ class Users
     // $offset zijn het aantal records dat hij overslaat. Default 0 records overslaan.
     public static function selectAll($orderBy, $numberOfRecords = 200, $offset = 0)
     {
-        global $db;
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
         $sql_selectAll_users = "SELECT * FROM user ORDER by $orderBy LIMIT $numberOfRecords OFFSET $offset;";
 
@@ -118,7 +116,7 @@ class Users
         $educationId,
         $cohort
     ) {
-        global $db;
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
         $modificationDate = date('Y-m-d H:i:s');
 
@@ -156,7 +154,7 @@ class Users
     // De functie returneert true als dit gelukt is en false als dit niet gelukt is.
     public static function delete($id)
     {
-        global $db;
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
         $sql_delete_user_by_id = "DELETE FROM user WHERE id=?;";
         $stmt = $db->prepare($sql_delete_user_by_id);
@@ -169,7 +167,7 @@ class Users
     }
 
     public static function changeSecret($id, $newSecret) {
-        global $db;
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
         $modificationDate = date('Y-m-d H:i:s');
         $encryptedSecret = password_hash($newSecret, PASSWORD_DEFAULT);

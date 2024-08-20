@@ -1,8 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
-$db = require_once $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
-
 use Ramsey\Uuid\Uuid;
 
 class Education
@@ -18,7 +16,7 @@ class Education
         $registerUntil,
         $graduateUntil
     ) {
-        global $db;
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
         // Generate a version 4 (random) UUID
         $educationId = Uuid::uuid4();
@@ -49,7 +47,7 @@ class Education
     // Er wordt een associative array ($education["id"]) van de opleiding gereturneerd.
     public static function select($id)
     {
-        global $db;
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
         $sql_select_educations_by_id = "SELECT * FROM education WHERE id=?;";
 
@@ -68,7 +66,7 @@ class Education
     // Er wordt een associative array met meerdere rijen gereturneerd.
     public static function selectAll()
     {
-        global $db;
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
         $sql_selectAll_educations = "SELECT * FROM education ORDER by creboNumber;";
 
@@ -92,7 +90,7 @@ class Education
         $registerUntil,
         $graduateUntil
     ) {
-        global $db;
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
         $sql_update_education_by_id = "UPDATE education
         SET creboNumber=?, name=?, level=?, description=?, registerUntil=?, graduateUntil=?
@@ -122,7 +120,7 @@ class Education
     // De functie returneert true als dit gelukt is en false als dit niet gelukt is.
     public static function delete($id)
     {
-        global $db;
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
         $sql_delete_education_by_id = "DELETE FROM education WHERE id=?;";
         $stmt = $db->prepare($sql_delete_education_by_id);
