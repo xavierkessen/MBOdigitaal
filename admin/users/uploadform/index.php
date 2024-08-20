@@ -1,8 +1,7 @@
 <?php
 
-// url: /admin/users/overview
-// Dit is de controller-pagina voor het genereren van een overzicht
-// van alle gebruikers.
+// url: /admin/users/uploadform
+// Dit is de controller-pagina voor het genereren van het upload formulier.
 
 // Globale variabelen en functies die op bijna alle pagina's
 // gebruikt worden.
@@ -30,27 +29,19 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 // Hier vinden alle acties plaats die moeten gebeuren om de juiste
 // informatie te bewerken.
 require $_SERVER['DOCUMENT_ROOT'] . '/models/Users.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/models/Educations.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/models/Roles.php';
 
-$users = Users::selectAll("lastName");
-
-// echo "<pre>";
-// print_r($users);
-// echo "</pre>";
-
-// Controleren of het gelukt is om een opleiding toe te voegen aan de database.
-// if (!$educations) {
-//     $message = "Het is niet gelukt om alle opleidingen op te halen uit de database.";
-//     callErrorPage($message);
-// }
-
+$roles = Role::selectAll();
+$educations = Education::selectAll();
 
 // 4. VIEWS OPHALEN
 // De HTML-pagina (view) wordt hier opgehaald.
 // $title is de titel van de html pagina.
-$newUrl = "/admin/users/new";
-$deleteUrl = "/admin/users/delete";
-$changeSecretUrl = "/admin/users/changesecret";
-$detailUrl = "/admin/users/detail";
-$uploadFormUrl = "/admin/users/uploadform";
-$title = "Overzicht gebruikers";
-require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/users/overview.php';
+$changeSecretAtLogonValue = 1;
+$enabledValue = 1;
+$secretValue = "Welkom01!";
+$cohortValue = "2024";
+$uploadUrl = "/admin/users/upload";
+$title = "Gebruikers uploaden";
+require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/users/uploadform.php';
