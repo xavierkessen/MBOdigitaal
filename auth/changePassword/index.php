@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // 3. CONTROLLER FUNCTIES
 // Hier vinden alle acties plaats die moeten gebeuren om de gebruiker te laten inloggen.
-// require $_SERVER['DOCUMENT_ROOT'] . '/models/Users.php';
+
 require $_SERVER['DOCUMENT_ROOT'] . '/models/Users.php';
 
 if ($newPassword1 === $newPassword2) {
@@ -83,7 +83,7 @@ if ($newPassword1 === $newPassword2) {
 // 4. VIEWS OPHALEN (REDIRECT)
 // Er wordt hier een redirect gedaan naar het overzicht van alle gebruikers.
 // Het bericht de gebruiker is toegevoegd wordt meegestuurd als variabele.
-$url = "/?message=$message";
+$url = "/admin/users/overview?message=$message";
 header('Location: ' . $url, true);
 exit();
 

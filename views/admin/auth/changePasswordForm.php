@@ -11,12 +11,12 @@
     <div class="mt-6 mx-auto px-4 bg-stone-950">
         <?php require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/templates/menu.php' ?>
         <div class="p-6 text-medium text-stone-50 rounded w-full md:w-3/5 lg:w-2/5 min-h-screen">
-            <h3 class="text-lg font-bold text-stone-100 text-white mb-2">CSV Upload vanuit Eduarte
+            <h3 class="text-lg font-bold text-stone-100 text-white mb-2">U moet uw wachtwoord wijzigen
             </h3>
             <p class="mb-2"></p>
             <br>
             <form method="POST" action="<?php echo $actionUrl ?>" class="w-full">
-                <input type="hidden" name="id" value="23a4b3e7-9e01-47b7-b73a-ce7544379d89">
+                <input type="hidden" name="id" value="<?php echo $id ?>">
                 <div class="md:flex md:items-center mb-6">
                     <div class="md:w-1/3">
                         <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="oldPassword">

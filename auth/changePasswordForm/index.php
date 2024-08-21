@@ -12,17 +12,17 @@ require $_SERVER['DOCUMENT_ROOT'] . '/errors/default.php';
 // 1. INLOGGEN CONTROLEREN
 // Hier wordt gecontroleerd of de gebruiker is ingelogd.
 // Alleen de gebruiker zelf mag zijn eigen wachtwoord wijzigen. 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // Veldnaam id opvangen en opslaan.
-    if (isset($_POST["id"])) {
-        $id = htmlspecialchars($_POST["id"]);
+    if (isset($_GET["id"])) {
+        $id = htmlspecialchars($_GET["id"]);
     } else {
         $errorMessage = "id is niet ingevuld of ontbreekt.";
         callErrorPage($errorMessage);
     }
 }
 require $_SERVER['DOCUMENT_ROOT'] . '/models/Auth.php';
-Auth::check(["23a4b3e7-9e01-47b7-b73a-ce7544379d89"]);
+Auth::check([$id]);
 
 // 2. INPUT CONTROLEREN
 // Controleren of de pagina is aangeroepen met behulp van form POST

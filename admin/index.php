@@ -14,6 +14,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/errors/default.php';
 // heeft. De rollen "applicatiebeheerder" en "administrator" hebben toegang.
 require $_SERVER['DOCUMENT_ROOT'] . '/models/Auth.php';
 Auth::check(["applicatiebeheerder", "administrator"]);
+Auth::checkResetPassword();
 
 // 2. INPUT CONTROLEREN
 // Controleren of de pagina is aangeroepen met behulp van form POST

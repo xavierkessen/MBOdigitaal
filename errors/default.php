@@ -12,3 +12,10 @@ function callLoginPage($errorMessage)
     header('Location: ' . $urlLoginPage, true);
     exit();
 }
+
+function callResetPasswordPage($id)
+{
+    $urlLoginPage = "/auth/changePasswordForm?id=$id";
+    header('Location: ' . $urlLoginPage, true);
+    exit();
+}

@@ -202,6 +202,7 @@ class Users
 
         if (Users::checkSecret($id, $oldSecret)) {
             Users::changeSecret($id, $newSecret);
+            Users::resetChangeSecretAtLogon($id, false);
             return true;
         } else {
             return false;
@@ -262,6 +263,55 @@ class Users
 
     }
 
+    // isEnabled controleert of het account van de gebruiker is
+    // geactiveerd. Returneert true als dit zo is anders false.
+    public static function isEnabled($id)
+    {
+
+    }
+
+    // mustChangeSecreteAtLogon controleert of de gebruiker zijn
+    // wachtwoord moet wijzigen. Returneert true als dit zo is anders false.
+    public static function mustChangeSecretAtLogon($id)
+    {
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+
+        $sql_select_users_by_id = "SELECT changeSecretAtLogon FROM user WHERE id=?;";
+
+        $stmt = $db->prepare($sql_select_users_by_id);
+
+        if ($stmt->execute([$id])) {
+            $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($users as $user) {
+
+                if ($user["changeSecretAtLogon"] === 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        }
+    }
+
+    public static function resetChangeSecretAtLogon($id, $mustReset)
+    {
+        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+
+        $sql_update_user_by_id = "UPDATE user SET changeSecretAtLogon=? WHERE id=?";
+
+        $stmt = $db->prepare($sql_update_user_by_id);
+
+        if ($stmt->execute([
+            $mustReset === true ? 1 : 0,
+            $id
+        ])){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     private static function checkSecret($id, $secret)
     {
         $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
@@ -274,15 +324,14 @@ class Users
             $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($users as $user) {
-                
+
                 if (password_verify($secret, $user['secret'])) {
                     return true;
-                }
-                else {
+                } else {
                     return true;
                 }
             }
-        } 
+        }
     }
 
     private static function checkEmailIsUnique($email)
@@ -290,7 +339,6 @@ class Users
         $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 
         $sql_select_users_by_email = "SELECT * FROM user WHERE email=?;";
-        echo $sql_select_users_by_email;
 
         $stmt = $db->prepare($sql_select_users_by_email);
         $stmt->execute([$email]);

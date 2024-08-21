@@ -78,24 +78,23 @@ class Auth
     public static function check($rolesOrIds)
     {
         if (isset($_COOKIE['token'])) {
+
             $token = $_COOKIE['token'];
             $jwtkey = "ClqFN0FlSkOHsyr8OVcowv8YMRSQLtRdJaJ3laoOkRbG0MyQXMXU6xmUdD1vBVj3";
             $decoded = JWT::decode($token, new Key($jwtkey, 'HS256'));
 
             // Controleren of het token nog geldig is.
             $exp = (int) $decoded->exp;
-
             if ($exp < time()) {
                 callLoginPage("U moet opnieuw inloggen. Uw sessie is verlopen.");
             }
 
+            $tokenIsValid = false;
             // Controleren of de rol van de gebruiker is toegestaan.
             $tokenRole = $decoded->data->roleName;
             foreach ($rolesOrIds as $role) {
-                if (
-                    strtolower($tokenRole) === strtolower($role)
-                ) {
-                    return true;
+                if (strtolower($tokenRole) === strtolower($role)) {
+                    $tokenIsValid = true;
                 }
             }
 
@@ -103,8 +102,12 @@ class Auth
             $tokenId = $decoded->data->id;
             foreach ($rolesOrIds as $id) {
                 if ($tokenId === $id) {
-                    return true;
+                    $tokenIsValid = true;
                 }
+            }
+
+            if ($tokenIsValid) {
+                return true;
             }
 
             callLoginPage("U hebt niet de juiste rechten om deze pagina te bezoeken.");
@@ -114,8 +117,31 @@ class Auth
         }
     }
 
+    public static function checkResetPassword()
+    {
+        require $_SERVER['DOCUMENT_ROOT'] . '/models/Users.php';
+        
+        $id = Auth::getTokenId();
+
+        if (Users::mustChangeSecretAtLogon($id)) {
+            callResetPasswordPage($id);
+        }
+    }
+
     public static function logout()
     {
         setcookie("token", "", time() - 8 * 3600, "/", "", true, true);
     }
+
+    private static function getTokenId() {
+        if (isset($_COOKIE['token'])) {
+
+            $token = $_COOKIE['token'];
+            $jwtkey = "ClqFN0FlSkOHsyr8OVcowv8YMRSQLtRdJaJ3laoOkRbG0MyQXMXU6xmUdD1vBVj3";
+            $decoded = JWT::decode($token, new Key($jwtkey, 'HS256'));
+
+            return $decoded->data->id;
+        }
+    }
 }
+
