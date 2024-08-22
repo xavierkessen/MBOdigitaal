@@ -1,10 +1,15 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/config/globalvars.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/errors/default.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/docroot.php';
+require_once __DOCUMENTROOT__ . '/config/globalvars.php';
+require_once __DOCUMENTROOT__ . '/errors/default.php';
+require_once __DOCUMENTROOT__ . '/database/dbconnection.php';
+require_once __DOCUMENTROOT__ . '/vendor/autoload.php';
+
+require_once __DOCUMENTROOT__ . '/models/Users.php';
+require_once __DOCUMENTROOT__ . '/models/Roles.php';
+
 use Firebase\JWT\JWT;
 use Firebase\JWT\key;
-
 
 class Auth
 {
@@ -14,7 +19,7 @@ class Auth
     // functie retureert true als het goed gaat.
     public static function login($email, $secret)
     {
-        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+        global $db;
 
         $sql_select_user_by_email = "SELECT * FROM user WHERE email=?";
 
@@ -34,11 +39,9 @@ class Auth
             // wachtwoord.
             if (password_verify($secret, $user['secret'])) {
 
-                $jwtkey = "ClqFN0FlSkOHsyr8OVcowv8YMRSQLtRdJaJ3laoOkRbG0MyQXMXU6xmUdD1vBVj3";
+                global $jwtkey;
                 // Aanmaken van de Jason Webtoken (JWT).
                 // Geldigheid van het token is 8 uur.
-
-                require $_SERVER['DOCUMENT_ROOT'] . '/models/Roles.php';
 
                 $role = Role::select($user["roleId"]);
 
@@ -80,8 +83,14 @@ class Auth
         if (isset($_COOKIE['token'])) {
 
             $token = $_COOKIE['token'];
-            $jwtkey = "ClqFN0FlSkOHsyr8OVcowv8YMRSQLtRdJaJ3laoOkRbG0MyQXMXU6xmUdD1vBVj3";
+            global $jwtkey;
             $decoded = JWT::decode($token, new Key($jwtkey, 'HS256'));
+
+            // Controleren of het account van de gebruiker wel actief is.
+            $tokenId = $decoded->data->id;
+            if (!Users::isEnabled($tokenId)) {
+                callErrorPage("Uw account is niet actief.");
+            }
 
             // Controleren of het token nog geldig is.
             $exp = (int) $decoded->exp;
@@ -99,7 +108,6 @@ class Auth
             }
 
             // Controleren of de ID van de gebruiker is toegestaan.
-            $tokenId = $decoded->data->id;
             foreach ($rolesOrIds as $id) {
                 if ($tokenId === $id) {
                     $tokenIsValid = true;
@@ -119,8 +127,6 @@ class Auth
 
     public static function checkResetPassword()
     {
-        require $_SERVER['DOCUMENT_ROOT'] . '/models/Users.php';
-        
         $id = Auth::getTokenId();
 
         if (Users::mustChangeSecretAtLogon($id)) {
@@ -133,11 +139,12 @@ class Auth
         setcookie("token", "", time() - 8 * 3600, "/", "", true, true);
     }
 
-    private static function getTokenId() {
+    private static function getTokenId()
+    {
         if (isset($_COOKIE['token'])) {
 
             $token = $_COOKIE['token'];
-            $jwtkey = "ClqFN0FlSkOHsyr8OVcowv8YMRSQLtRdJaJ3laoOkRbG0MyQXMXU6xmUdD1vBVj3";
+            global $jwtkey;
             $decoded = JWT::decode($token, new Key($jwtkey, 'HS256'));
 
             return $decoded->data->id;

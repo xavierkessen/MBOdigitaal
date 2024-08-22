@@ -1,11 +1,12 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+
 // Pad waar de database setup in staat.
 $sqlFile = 'setup.sql';
 
 try {
     // Connect to MySQL database using PDO
-    $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Read the SQL file

@@ -5,7 +5,10 @@
 
 // Globale variablen en functies die op bijna alle pagina's
 // gebruikt worden.
-require $_SERVER['DOCUMENT_ROOT'] . '/config/globalvars.php';
+require $_SERVER["DOCUMENT_ROOT"] . '/docroot.php';
+require_once __DOCUMENTROOT__ . '/config/globalvars.php';
+require_once __DOCUMENTROOT__ . '/errors/default.php';
+
 
 // 1. INLOGGEN CONTROLEREN
 // Hier wordt gecontroleerd of de gebruiker is ingelogd en de juiste rechten
@@ -37,4 +40,4 @@ else {
 // De HTML-pagina (view) wordt hier opgehaald.
 // $title is de titel van de html pagina.
 $title = "Pagina foutmelding";
-require $_SERVER['DOCUMENT_ROOT'] . '/views/errors/default.php';
+require __DOCUMENTROOT__ . '/views/errors/default.php';

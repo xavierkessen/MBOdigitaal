@@ -6,8 +6,9 @@
 
 // Globale variablen en functies die op bijna alle pagina's
 // gebruikt worden.
-require $_SERVER['DOCUMENT_ROOT'] . '/config/globalvars.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/errors/default.php';
+require $_SERVER["DOCUMENT_ROOT"] . '/docroot.php';
+require __DOCUMENTROOT__ . '/config/globalvars.php';
+require __DOCUMENTROOT__ . '/errors/default.php';
 
 // 2. INPUT CONTROLEREN
 // Controleren of de pagina is aangeroepen met behulp van form POST
@@ -36,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // 3. CONTROLLER FUNCTIES
 // Hier vinden alle acties plaats die moeten gebeuren om de gebruiker te laten inloggen.
-require $_SERVER['DOCUMENT_ROOT'] . '/models/Auth.php';
+require __DOCUMENTROOT__ . '/models/Auth.php';
 
 $result = Auth::login(
     $email,

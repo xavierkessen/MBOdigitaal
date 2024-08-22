@@ -6,12 +6,14 @@
 
 // Globale variablen en functies die op bijna alle pagina's
 // gebruikt worden.
-require $_SERVER['DOCUMENT_ROOT'] . '/config/globalvars.php';
+require $_SERVER["DOCUMENT_ROOT"] . '/docroot.php';
+require __DOCUMENTROOT__ . '/config/globalvars.php';
+require __DOCUMENTROOT__ . '/errors/default.php';
 
 // 1. INLOGGEN CONTROLEREN
 // Hier wordt gecontroleerd of de gebruiker is ingelogd en de juiste rechten
 // heeft. De rollen "applicatiebeheerder" en "administrator" hebben toegang.
-require $_SERVER['DOCUMENT_ROOT'] . '/models/Auth.php';
+require __DOCUMENTROOT__ . '/models/Auth.php';
 Auth::check(["applicatiebeheerder", "administrator"]);
 
 // 2. INPUT CONTROLEREN
@@ -28,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 // 3. CONTROLLER FUNCTIES
 // Hier vinden alle acties plaats die moeten gebeuren om de juiste
 // informatie te bewerken.
-require $_SERVER['DOCUMENT_ROOT'] . '/models/Roles.php';
+require_once __DOCUMENTROOT__ . '/models/Roles.php';
 
 $roles = Role::selectAll();
 
@@ -47,4 +49,4 @@ if (!$roles) {
 // $title is de titel van de html pagina.
 $newUrl = "/admin/roles/new";
 $title = "Overzicht rollen";
-require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/roles/overview.php';
+require __DOCUMENTROOT__ . '/views/admin/roles/overview.php';

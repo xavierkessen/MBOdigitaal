@@ -9,12 +9,14 @@
  */
 
 // 1. VARIABELEN EN DATABASE CONNECTIE
-require $_SERVER['DOCUMENT_ROOT'] . '/config/globalvars.php';
+require $_SERVER["DOCUMENT_ROOT"] . '/docroot.php';
+require __DOCUMENTROOT__ . '/config/globalvars.php';
+require __DOCUMENTROOT__ . '/errors/default.php';
 
 // 2. ACTIES
 // Er zijn nu geen acties.
 // Een lijst van alle opleidingen wordt hier opgehaald.
-require $_SERVER['DOCUMENT_ROOT'] . '/models/Educations.php';
+require __DOCUMENTROOT__ . '/models/Educations.php';
 $educations = Education::selectAll();
 
 // 3. VIEWS OPHALEN

@@ -1,5 +1,9 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/docroot.php';
+require_once __DOCUMENTROOT__ . '/config/globalvars.php';
+require_once __DOCUMENTROOT__ . '/errors/default.php';
+require_once __DOCUMENTROOT__ . '/database/dbconnection.php';
+require_once __DOCUMENTROOT__ . '/vendor/autoload.php';
 
 use Ramsey\Uuid\Uuid;
 
@@ -16,7 +20,7 @@ class Education
         $registerUntil,
         $graduateUntil
     ) {
-        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+        global $db;
 
         // Generate a version 4 (random) UUID
         $educationId = Uuid::uuid4();
@@ -47,7 +51,7 @@ class Education
     // Er wordt een associative array ($education["id"]) van de opleiding gereturneerd.
     public static function select($id)
     {
-        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+        global $db;
 
         $sql_select_educations_by_id = "SELECT * FROM education WHERE id=?;";
 
@@ -66,7 +70,7 @@ class Education
     // Er wordt een associative array met meerdere rijen gereturneerd.
     public static function selectAll()
     {
-        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+        global $db;
 
         $sql_selectAll_educations = "SELECT * FROM education ORDER by creboNumber;";
 
@@ -90,7 +94,7 @@ class Education
         $registerUntil,
         $graduateUntil
     ) {
-        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+        global $db;
 
         $sql_update_education_by_id = "UPDATE education
         SET creboNumber=?, name=?, level=?, description=?, registerUntil=?, graduateUntil=?
@@ -120,7 +124,7 @@ class Education
     // De functie returneert true als dit gelukt is en false als dit niet gelukt is.
     public static function delete($id)
     {
-        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+        global $db;
 
         $sql_delete_education_by_id = "DELETE FROM education WHERE id=?;";
         $stmt = $db->prepare($sql_delete_education_by_id);

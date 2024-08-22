@@ -6,8 +6,9 @@
 
 // Globale variablen en functies die op bijna alle pagina's
 // gebruikt worden.
-require $_SERVER['DOCUMENT_ROOT'] . '/config/globalvars.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/errors/default.php';
+require $_SERVER["DOCUMENT_ROOT"] . '/docroot.php';
+require __DOCUMENTROOT__ . '/config/globalvars.php';
+require __DOCUMENTROOT__ . '/errors/default.php';
 
 // 1. INLOGGEN CONTROLEREN
 // Hier wordt gecontroleerd of de gebruiker is ingelogd.
@@ -21,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         callErrorPage($errorMessage);
     }
 }
-require $_SERVER['DOCUMENT_ROOT'] . '/models/Auth.php';
+require __DOCUMENTROOT__ . '/models/Auth.php';
 Auth::check([$id]);
 
 // 2. INPUT CONTROLEREN
@@ -38,5 +39,5 @@ Auth::check([$id]);
 // 
 $title = "Wachtwoord resetten";
 $actionUrl = "/auth/changePassword";
-require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/auth/changePasswordForm.php';
+require __DOCUMENTROOT__ . '/views/admin/auth/changePasswordForm.php';
 

@@ -5,13 +5,14 @@
 
 // Globale variablen en functies die op bijna alle pagina's
 // gebruikt worden.
-require $_SERVER['DOCUMENT_ROOT'] . '/config/globalvars.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/errors/default.php';
+require $_SERVER["DOCUMENT_ROOT"] . '/docroot.php';
+require __DOCUMENTROOT__ . '/config/globalvars.php';
+require __DOCUMENTROOT__ . '/errors/default.php';;
 
 // 1. INLOGGEN CONTROLEREN
 // Hier wordt gecontroleerd of de gebruiker is ingelogd en de juiste rechten
 // heeft. De rollen "applicatiebeheerder" en "administrator" hebben toegang. 
-require $_SERVER['DOCUMENT_ROOT'] . '/models/Auth.php';
+require __DOCUMENTROOT__ . '/models/Auth.php';
 Auth::check(["applicatiebeheerder", "administrator"]);
 
 // 2. INPUT CONTROLEREN
@@ -37,7 +38,7 @@ else {
 // Hier vinden alle acties plaats die moeten gebeuren voordat een nieuwe pagina
 // wordt getoond.
 // Informatie van bestaande opleiding wordt opgehaald uit de database.
-require $_SERVER['DOCUMENT_ROOT'] . '/models/Educations.php';
+require_once __DOCUMENTROOT__ . '/models/Educations.php';
 
 $education = Education::select($id);
 
@@ -61,4 +62,4 @@ $descriptionValue = $education["description"];
 $registerUntilValue = $education["registerUntil"];
 $graduateUntilValue = $education["graduateUntil"];
 $editUrl = "/admin/educations/edit";
-require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/educations/form.php';
+require __DOCUMENTROOT__ . '/views/admin/educations/form.php';

@@ -1,5 +1,9 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/docroot.php';
+require_once __DOCUMENTROOT__ . '/config/globalvars.php';
+require_once __DOCUMENTROOT__ . '/errors/default.php';
+require_once __DOCUMENTROOT__ . '/database/dbconnection.php';
+require_once __DOCUMENTROOT__ . '/vendor/autoload.php';
 
 use Ramsey\Uuid\Uuid;
 
@@ -22,7 +26,7 @@ class Users
         $educationId,
         $cohort,
     ) {
-        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+        global $db;
 
         if (Users::checkEmailIsUnique($email) === false) {
             return "Emailadres bestaat al is en is dus niet uniek.";
@@ -70,7 +74,7 @@ class Users
     // Er wordt een associative array ($user["id"]) van de gebruiker gereturneerd.
     public static function select($id)
     {
-        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+        global $db;
 
         $sql_select_users_by_id = "SELECT * FROM user WHERE id=?;";
 
@@ -91,7 +95,7 @@ class Users
     // $offset zijn het aantal records dat hij overslaat. Default 0 records overslaan.
     public static function selectAll($orderBy, $numberOfRecords = 200, $offset = 0)
     {
-        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+        global $db;
 
         $sql_selectAll_users = "SELECT * FROM user ORDER by $orderBy LIMIT $numberOfRecords OFFSET $offset;";
 
@@ -120,7 +124,7 @@ class Users
         $educationId,
         $cohort
     ) {
-        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+        global $db;
 
         $modificationDate = date('Y-m-d H:i:s');
 
@@ -158,7 +162,7 @@ class Users
     // De functie returneert true als dit gelukt is en false als dit niet gelukt is.
     public static function delete($id)
     {
-        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+        global $db;
 
         $sql_delete_user_by_id = "DELETE FROM user WHERE id=?;";
         $stmt = $db->prepare($sql_delete_user_by_id);
@@ -172,7 +176,7 @@ class Users
 
     public static function changeSecret($id, $newSecret)
     {
-        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+        global $db;
 
         $modificationDate = date('Y-m-d H:i:s');
         $encryptedSecret = password_hash($newSecret, PASSWORD_DEFAULT);
@@ -267,14 +271,31 @@ class Users
     // geactiveerd. Returneert true als dit zo is anders false.
     public static function isEnabled($id)
     {
+        global $db;
 
+        $sql_select_users_by_id = "SELECT enabled FROM user WHERE id=?;";
+
+        $stmt = $db->prepare($sql_select_users_by_id);
+
+        if ($stmt->execute([$id])) {
+            $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($users as $user) {
+
+                if ($user["enabled"]) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
     }
 
     // mustChangeSecreteAtLogon controleert of de gebruiker zijn
     // wachtwoord moet wijzigen. Returneert true als dit zo is anders false.
     public static function mustChangeSecretAtLogon($id)
     {
-        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+        global $db;
 
         $sql_select_users_by_id = "SELECT changeSecretAtLogon FROM user WHERE id=?;";
 
@@ -296,7 +317,7 @@ class Users
 
     public static function resetChangeSecretAtLogon($id, $mustReset)
     {
-        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+        global $db;
 
         $sql_update_user_by_id = "UPDATE user SET changeSecretAtLogon=? WHERE id=?";
 
@@ -314,7 +335,7 @@ class Users
 
     private static function checkSecret($id, $secret)
     {
-        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+        global $db;
 
         $sql_select_users_by_id = "SELECT id, secret FROM user WHERE id=?;";
 
@@ -336,7 +357,7 @@ class Users
 
     private static function checkEmailIsUnique($email)
     {
-        $db = require $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
+        global $db;
 
         $sql_select_users_by_email = "SELECT * FROM user WHERE email=?;";
 

@@ -6,8 +6,9 @@
 
 // Globale variablen en functies die op bijna alle pagina's
 // gebruikt worden.
-require $_SERVER['DOCUMENT_ROOT'] . '/config/globalvars.php';
-require $_SERVER['DOCUMENT_ROOT'] . '/errors/default.php';
+require $_SERVER["DOCUMENT_ROOT"] . '/docroot.php';
+require __DOCUMENTROOT__ . '/config/globalvars.php';
+require __DOCUMENTROOT__ . '/errors/default.php';
 
 // 1. INLOGGEN CONTROLEREN
 // Hier wordt gecontroleerd of de gebruiker is ingelogd en de juiste rechten
@@ -31,4 +32,4 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 // 4. VIEWS OPHALEN (REDIRECT)
 // Het view van het dashboard pagina wordt opgehaald.
 $title = "Inloggen op Adminpanel MBO Go Digital";
-require $_SERVER['DOCUMENT_ROOT'] . '/views/admin/auth/login.php';
+require __DOCUMENTROOT__ . '/views/admin/auth/login.php';
