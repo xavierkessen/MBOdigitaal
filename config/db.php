@@ -17,7 +17,7 @@ $password = "Vrieskist@247";        // Wachtwoord van de gebruiker.
  * CREATE USER 'mbogodigitalUser'@'localhost' identified by 'Vrieskist@247';
  * 
  * MySQL gebruiker toegang geven tot de database:
- * GRANT ALL PRIVILEGES ON 'mbogodigital.* TO 'mbogodigitallUser'@'localhost';
+ * GRANT ALL PRIVILEGES ON mbogodigital.* TO 'mbogodigitallUser'@'localhost';
  * 
  * Nieuwe gebruiker activeren:
  * FLUSH PRIVILEGES;
