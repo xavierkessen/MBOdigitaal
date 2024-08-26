@@ -1,8 +1,7 @@
 <?php
 
-// url: /admin/
-// Dit is de controller-pagina wordt gebruikt om in te loggen op het
-// adminpanel.
+// url: /admin/auth/logout
+// Dit is de controller-pagina wordt gebruikt om uit te loggen.
 
 // Globale variablen en functies die op bijna alle pagina's
 // gebruikt worden.
