@@ -11,5 +11,6 @@ try {
     //     echo "Connected to the $db database successfully!";
     // }
 } catch (PDOException $e) {
+    // echo $e;
     callErrorPage("Er kan geen verbinding worden gemaakt met de databaseserver");
 }

@@ -24,6 +24,13 @@ $password = "Vrieskist@247";        // Wachtwoord van de gebruiker.
  * 
  */
 
+ /*
+  * extension=pdo_mysql
+  * Deze moet je activeren in de php.ini.
+  * Dit bestand staat hoogstwaarschijnlijk in de map c:\xampp\php.
+  * Zoek naar pdo_mysql en haal de ; weg aan het begin van de regel.
+  */
+
  /* 
   * TODO
   * Het is beter om hier omgevingsvariabelen te gebruiken ipv van de gegevens (met wachtwoord)
