@@ -249,4 +249,6 @@
 </p>
 <ul class="my-2 list-disc pl-5">
     <li class="ml-4">Eerste opzet van het technisch ontwerp moet nog iets meer worden uitgewerkt.</li>
+    <li class="ml-4">Website mbogodigital.nl moet nog online gezet worden.</li>
+    <li class="ml-4">Banners en stickers laten maken van het project mbodigital.nl.</li>
 </ul>
