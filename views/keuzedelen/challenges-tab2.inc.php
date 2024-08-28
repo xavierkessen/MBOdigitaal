@@ -22,8 +22,10 @@
     </div>
 </div>
 
-
 <!-- Tabel met het overzicht van de deliverables. -->
+<h1 class="m-2 text-2xl leading-none text-gray-900">
+    Challenge Deliverables
+</h1>
 <table class="table-auto w-full border-collapse border border-gray-400 mb-8">
     <thead>
         <tr>
@@ -61,7 +63,11 @@
     </tbody>
 </table>
 
+
 <!-- Tabel met het overzicht van de bewijsstukken -->
+<h1 class="m-2 text-2xl leading-none text-gray-900">
+    Bewijsstukken
+</h1>
 <table class="table-auto w-full border-collapse border border-gray-400 mb-8">
     <thead>
         <tr>
@@ -74,7 +80,8 @@
         <tr>
             <td class="border border-gray-300 px-4 py-2">Development Omgeving op eigen laptop</td>
             <td class="border border-gray-300 px-4 py-2">Screenrecording waarin je laat zien dat alles werkt.</td>
-            <td class="border border-gray-300 px-4 py-2">Zorg dat je kunt laten zien dat de developmentomgeving op je eigen
+            <td class="border border-gray-300 px-4 py-2">Zorg dat je kunt laten zien dat de developmentomgeving op je
+                eigen
                 laptop staat.</td>
         </tr>
         <tr>
@@ -117,6 +124,9 @@
 </table>
 
 <!-- Tabel met het overzicht van de level indicatie. -->
+<h1 class="m-2 text-2xl leading-none text-gray-900">
+    Levelindicatie
+</h1>
 <table class="table-auto w-full border-collapse border border-gray-400 mb-8">
     <thead>
         <tr>
@@ -134,7 +144,7 @@
     <tbody>
         <tr>
             <td class="border border-gray-300 px-4 py-2">B1-K1-W2</td>
-            <td class="border border-gray-300 px-4 py-2">Ontwerp software</td>
+            <td class="border border-gray-300 px-4 py-2">Ontwerpt software</td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
@@ -160,10 +170,83 @@
             <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
+            <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
+            <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center">X</td>
-            <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
-            <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
         </tr>
     </tbody>
 </table>
+
+
+<!-- Tabel met het overzicht van alle bijlagen -->
+<h1 class="m-2 text-2xl leading-none text-gray-900">
+    Bijlagen
+</h1>
+<table class="table-auto w-full border-collapse border border-gray-400 mb-8">
+    <thead>
+        <tr>
+            <th class="border bg-gray-300 border-gray-300 px-4 py-2">Bijlage</th>
+            <th class="border bg-gray-300 border-gray-300 px-4 py-2">Omschrijving</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="border border-gray-300 px-4 py-2 font-bold underline">
+                <a href="https://eduofficenl-my.sharepoint.com/:p:/g/personal/m_dackus_vistacollege_nl/EZj2VHWh_pFDpTTKoBxVlaUBK3jojr68yh1fiA7VGu74Pw?e=iDhC2z"
+                    target="_blank">
+                    Installatiehandleiding developmentomgeving
+                    mbogodigital.nl</a>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">Deze handleiding kun je gebruiken om de website van
+                mbogodigital.nl op je eigen laptop te installeren.</td>
+        </tr>
+        <tr>
+            <td class="border border-gray-300 px-4 py-2 font-bold underline">
+                <a href="https://github.com/ICTLyceum/MBOdigitaal" target="_blank">
+                    Repository mbogodigital.nl op github.com</a>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">Cloon deze naar je eigen laptop. Zie handleiding hier boven.
+            </td>
+        </tr>
+        <tr>
+            <td class="border border-gray-300 px-4 py-2 font-bold underline">
+                <a href="https://eduofficenl-my.sharepoint.com/:w:/g/personal/m_dackus_vistacollege_nl/EYJB79FblhdCsIsdW4fCuSMB813VYzmZwNY8KP2B4HfKjQ?e=VqjdeP"
+                    target="_blank">
+                    Technisch ontwerp</a>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">Eerste opzet van het technisch ontwerp gemaakt voor Niels
+                Cortjens. Moet nog veel aan gebeuren.</td>
+        </tr>
+        <tr>
+            <td class="border border-gray-300 px-4 py-2 font-bold underline">
+                <a href="https://drawsql.app/teams/vista-maastricht/diagrams/mbodigitaal" target="_blank">
+                    ERD MBO Go Digital</a>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">De tabellen die op dit moment gebruikt worden in de database op
+                mbogodigital.nl.</td>
+        </tr>
+        <tr>
+            <td class="border border-gray-300 px-4 py-2 font-bold underline">
+                <a href="https://drive.google.com/file/d/1S1J27zn6qoHxnd6yccEkwbYB4NjO8cQC/view?usp=sharing"
+                    target="_blank">
+                    Diagrammen in draw.io</a>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">De diagrammen die gebruikt zijn voor het technisch ontwerp.
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<!-- Lijst met werkzaamheden die nog moeten gebeuren aan deze challenge. -->
+<h1 class="m-2 text-2xl leading-none text-gray-900">
+    TODO
+</h1>
+<p class="mt-2 text-gray-700 italic">
+    De onderstaande lijst zijn de werkzaamheden die nog moeten gebeuren aan deze challenge. Zit je op een van de
+    onderstaande punten te wachten neem dan contact op met je docent.
+</p>
+<ul class="my-2 list-disc pl-5">
+    <li class="ml-4">Eerste opzet van het technisch ontwerp moet nog iets meer worden uitgewerkt.</li>
+</ul>
