@@ -9,7 +9,7 @@ require_once __DOCUMENTROOT__ . '/models/Users.php';
 require_once __DOCUMENTROOT__ . '/models/Roles.php';
 
 use Firebase\JWT\JWT;
-use Firebase\JWT\key;
+use Firebase\JWT\Key;
 
 class Auth
 {
