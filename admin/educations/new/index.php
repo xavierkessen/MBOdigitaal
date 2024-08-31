@@ -29,5 +29,5 @@ Auth::check(["applicatiebeheerder", "administrator"]);
 // $title is de titel van de html pagina.
 $title = "Opleiding toevoegen";
 $editmode = false;
-$actionUrl = "/admin/educations/add";
+$actionUrl = "/admin/educations/add/";
 require __DOCUMENTROOT__ . '/views/admin/educations/form.php';

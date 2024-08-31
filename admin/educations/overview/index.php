@@ -44,6 +44,6 @@ $educations = Education::selectAll();
 // 4. VIEWS OPHALEN
 // De HTML-pagina (view) wordt hier opgehaald.
 // $title is de titel van de html pagina.
-$newUrl = "/admin/educations/new";
+$newUrl = "/admin/educations/new/";
 $title = "Overzicht opleidingen";
 require __DOCUMENTROOT__ . '/views/admin/educations/overview.php';

@@ -57,8 +57,8 @@ if (!$user) {
 // $title is de titel van de html pagina.
 $title = "Formulier gebruiker bewerken";
 $editmode = true;
-$actionUrl = "/admin/users/update";
-$editUrl = "/admin/users/edit";
+$actionUrl = "/admin/users/update/";
+$editUrl = "/admin/users/edit/";
 $idValue = $user["id"];
 $duoNumberValue = $user["duoNumber"];
 $firstNameValue = $user["firstName"];

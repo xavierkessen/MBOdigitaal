@@ -35,8 +35,8 @@ $educations = Education::selectAll();
 // $title is de titel van de html pagina.
 $title = "Gebruiker toevoegen";
 $editmode = false;
-$actionUrl = "/admin/users/add";
-$overviewUrl = "/admin/users/overview";
+$actionUrl = "/admin/users/add/";
+$overviewUrl = "/admin/users/overview/";
 $changeSecretAtLogonValue = 1;
 $enabledValue = 1;
 require __DOCUMENTROOT__ . '/views/admin/users/form.php';

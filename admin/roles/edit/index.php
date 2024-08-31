@@ -53,7 +53,7 @@ if (!$role) {
 // $title is de titel van de html pagina.
 $title = "Formulier rol bewerken";
 $editmode = true;
-$actionUrl = "/admin/roles/update";
+$actionUrl = "/admin/roles/update/";
 $idValue = $role["id"];
 $nameValue = $role["name"];
 $levelValue = $role["level"];

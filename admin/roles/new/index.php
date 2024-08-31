@@ -29,5 +29,5 @@ Auth::check(["applicatiebeheerder", "administrator"]);
 // $title is de titel van de html pagina.
 $title = "Overzicht rollen";
 $editmode = false;
-$actionUrl = "/admin/roles/add";
+$actionUrl = "/admin/roles/add/";
 require __DOCUMENTROOT__ . '/views/admin/roles/form.php';

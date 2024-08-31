@@ -53,7 +53,7 @@ if (!$education) {
 // $title is de titel van de html pagina.
 $title = "Formulier opleiding bewerken";
 $editmode = true;
-$actionUrl = "/admin/educations/update";
+$actionUrl = "/admin/educations/update/";
 $idValue = $education["id"];
 $creboNumberValue = $education["creboNumber"];
 $nameValue = $education["name"];
@@ -61,5 +61,5 @@ $levelValue = $education["level"];
 $descriptionValue = $education["description"];
 $registerUntilValue = $education["registerUntil"];
 $graduateUntilValue = $education["graduateUntil"];
-$editUrl = "/admin/educations/edit";
+$editUrl = "/admin/educations/edit/";
 require __DOCUMENTROOT__ . '/views/admin/educations/form.php';

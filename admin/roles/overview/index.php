@@ -47,6 +47,6 @@ if (!$roles) {
 // 4. VIEWS OPHALEN
 // De HTML-pagina (view) wordt hier opgehaald.
 // $title is de titel van de html pagina.
-$newUrl = "/admin/roles/new";
+$newUrl = "/admin/roles/new/";
 $title = "Overzicht rollen";
 require __DOCUMENTROOT__ . '/views/admin/roles/overview.php';

@@ -43,6 +43,6 @@ $changeSecretAtLogonValue = 1;
 $enabledValue = 1;
 $secretValue = "Welkom01!";
 $cohortValue = "2024";
-$uploadUrl = "/admin/users/upload";
+$uploadUrl = "/admin/users/upload/";
 $title = "Gebruikers uploaden";
 require __DOCUMENTROOT__ . '/views/admin/users/uploadform.php';

@@ -50,8 +50,8 @@ $role = Role::select($user["roleId"]);
 // De HTML-pagina (view) wordt hier opgehaald.
 // $title is de titel van de html pagina.
 $title = "Gebruiker detailoverzicht";
-$editUrl = "/admin/users/edit";
-$overviewUrl = "/admin/users/overview";
+$editUrl = "/admin/users/edit/";
+$overviewUrl = "/admin/users/overview/";
 $idValue = $user["id"];
 $duoNumberValue = $user["duoNumber"];
 $firstNameValue = $user["firstName"];

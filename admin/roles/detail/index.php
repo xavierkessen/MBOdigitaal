@@ -49,6 +49,6 @@ $title = "Rol detailoverzicht";
 $id = $role["id"];
 $name = $role["name"];
 $level = $role["level"];
-$editUrl = "/admin/roles/edit";
-$overviewUrl = "/admin/roles/overview";
+$editUrl = "/admin/roles/edit/";
+$overviewUrl = "/admin/roles/overview/";
 require __DOCUMENTROOT__ . '/views/admin/roles/detailedview.php';

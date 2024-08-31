@@ -54,6 +54,6 @@ $level = $education["level"];
 $description = $education["description"];
 $registerUntil = $education["registerUntil"];
 $graduateUntil = $education["graduateUntil"];
-$editUrl = "/admin/educations/edit";
-$overviewUrl = "/admin/educations/overview";
+$editUrl = "/admin/educations/edit/";
+$overviewUrl = "/admin/educations/overview/";
 require __DOCUMENTROOT__ . '/views/admin/educations/detailedview.php';

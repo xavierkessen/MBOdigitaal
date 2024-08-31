@@ -48,10 +48,10 @@ $users = Users::selectAll("lastName");
 // 4. VIEWS OPHALEN
 // De HTML-pagina (view) wordt hier opgehaald.
 // $title is de titel van de html pagina.
-$newUrl = "/admin/users/new";
-$deleteUrl = "/admin/users/delete";
-$changeSecretUrl = "/admin/users/changesecret";
-$detailUrl = "/admin/users/detail";
-$uploadFormUrl = "/admin/users/uploadform";
+$newUrl = "/admin/users/new/";
+$deleteUrl = "/admin/users/delete/";
+$changeSecretUrl = "/admin/users/changesecret/";
+$detailUrl = "/admin/users/detail/";
+$uploadFormUrl = "/admin/users/uploadform/";
 $title = "Overzicht gebruikers";
 require __DOCUMENTROOT__ . '/views/admin/users/overview.php';

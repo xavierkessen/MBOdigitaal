@@ -24,14 +24,14 @@
             </div>
             <!-- Modal body -->
             <div class="mt-4">
-                <form method="POST" action="/auth/login">
+                <form method="POST" action="/auth/login/">
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
                             Emailadres
                         </label>
                         <input
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="email" name="email" type="text" placeholder="Emailadres">
+                            id="email" name="email" type="email" placeholder="Emailadres">
                     </div>
                     <div class="mb-6">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
