@@ -7,10 +7,10 @@
         class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
         <div class="mb-8">
             <p class="text-sm text-gray-600 flex items-center italic mb-2">
-                Challenge 26
+                Challenge 14
             </p>
             <div class="text-gray-900 font-bold text-xl mb-2">Ik kan een database ontwerpen en maken
-                voor het beheren van de keuzedelen en de keuzes van de studenten.
+                voor het beheren van de levels en de vorderingen van de studenten.
             </div>
             <p class="text-gray-700 text-base"></p>
         </div>
@@ -37,7 +37,7 @@
     </thead>
     <tbody>
         <tr>
-            <td class="border border-gray-300 px-4 py-2">Ontwerp van de database van mbogodigital.nl met de keuzedelen.
+            <td class="border border-gray-300 px-4 py-2">Ontwerp van de database van mbogodigital.nl met de levels.
                 Gemaakt in drawsql.app. <b>(Individueel)</b></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center">6</td>
         </tr>
@@ -153,8 +153,8 @@
             <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
-            <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center">X</td>
+            <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
         </tr>
         <tr>
@@ -164,8 +164,8 @@
             <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
-            <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center">X</td>
+            <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center"></td>
         </tr>
     </tbody>
@@ -186,12 +186,12 @@
     <tbody>
         <tr>
             <td class="border border-gray-300 px-4 py-2 font-bold underline">
-                <a href="https://eduofficenl-my.sharepoint.com/:f:/g/personal/m_dackus_vistacollege_nl/EuV8KX8A5llLjjAhuSplUWgBnGKMGPXVq35oo557ikudAQ?e=kfHnAQ"
+                <a href="https://eduofficenl-my.sharepoint.com/:f:/g/personal/m_dackus_vistacollege_nl/EgVrNqSyR7VPi7FGiikpYRAB8HyaOL2VHBjst9zHKBpqsw?e=UVMh74"
                     target="_blank">
-                    Keuzedelen informatie</a>
+                    Levelinformatie informatie</a>
             </td>
             <td class="border border-gray-300 px-4 py-2">In map staat een verzameling van informatie en gegevens die
-                nodig zijn om de keuzedelen te beheren. Jij moet deze gegevens gaan ordenen en hier een ERD van maken.
+                nodig zijn om de levels te beheren. Jij moet deze gegevens gaan ordenen en hier een ERD van maken.
             </td>
         </tr>
         <tr>
@@ -270,6 +270,6 @@
     onderstaande punten te wachten neem dan contact op met je docent.
 </p>
 <ul class="my-2 list-disc pl-5">
-    <li class="ml-4">Keuzedeleninformatie van de verschillende rollen moet nog worden verzameld.</li>
-    <li class="ml-4">Sjabloon SQL Command Guide moet nog worden aangepast op het thema van de keuzedelen.</li>
+    <li class="ml-4">Levelinformatie van de verschillende rollen moet nog worden verzameld.</li>
+    <li class="ml-4">Sjabloon SQL Command Guide moet nog worden aangepast op het thema van de levelinformatie.</li>
 </ul>

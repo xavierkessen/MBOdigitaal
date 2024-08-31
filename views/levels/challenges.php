@@ -21,96 +21,25 @@
                     onclick="openTab(event, 'tab1')">Case</button>
                 <button
                     class="w-1/2 py-4 text-center font-medium text-gray-700 bg-gray-100 rounded-tl-lg focus:outline-none active:bg-gray-200"
-                    onclick="openTab(event, 'tab2')">Challenge 16</button>
+                    onclick="openTab(event, 'tab2')">Challenge 13</button>
                 <button
                     class="w-1/2 py-4 text-center font-medium text-gray-700 bg-gray-100 rounded-tr-lg focus:outline-none"
-                    onclick="openTab(event, 'tab3')">Challenge 17</button>
+                    onclick="openTab(event, 'tab3')">Challenge 14</button>
                 <button
                     class="w-1/2 py-4 text-center font-medium text-gray-700 bg-gray-100 rounded-tr-lg focus:outline-none"
-                    onclick="openTab(event, 'tab4')">Challenge 18</button>
+                    onclick="openTab(event, 'tab4')">Challenge 15</button>
             </div>
             <div id="tab1" class="tabcontent p-4">
-                <h2 class="text-lg font-bold text-gray-800">Case</h2>
-                <p class="mt-2 text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel enim
-                    euismod,
-                    imperdiet felis vel, ultrices risus. Sed nec quam id elit fringilla blandit a a risus.</p>
+                <?php require 'challenges-tab1.inc.php' ?>
             </div>
             <div id="tab2" class="tabcontent p-4 hidden">
-                <div class="max-w-sm w-full lg:max-w-full lg:flex">
-                    <div class="h-48 lg:h-auto lg:w-96 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
-                        style="background-image: url('https://blog.udemy.com/wp-content/uploads/2013/10/shutterstock_108312236.jpg')"
-                        title="Woman holding a mug">
-                    </div>
-                    <div
-                        class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                        <div class="mb-8">
-                            <p class="text-sm text-gray-600 flex items-center italic mb-2">
-                                Challenge 16
-                            </p>
-                            <div class="text-gray-900 font-bold text-xl mb-2">Ik kan de frontend ontwerpen en maken voor
-                                het presenteren en beheren van levelinformatie op mbogodigital.nl.
-                            </div>
-                            <p class="text-gray-700 text-base"></p>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="text-sm">
-                                <p class="text-gray-900 leading-none">Vista College</p>
-                                <p class="text-gray-600">Software Developer (25904 en 25998)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php require 'challenges-tab2.inc.php' ?>
             </div>
             <div id="tab3" class="tabcontent p-4 hidden">
-                <div class="max-w-sm w-full lg:max-w-full lg:flex">
-                    <div class="h-48 lg:h-auto lg:w-96 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
-                        style="background-image: url('https://blog.udemy.com/wp-content/uploads/2013/10/shutterstock_108312236.jpg')"
-                        title="Woman holding a mug">
-                    </div>
-                    <div
-                        class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                        <div class="mb-8">
-                            <p class="text-sm text-gray-600 flex items-center italic mb-2">
-                                Challenge 17
-                            </p>
-                            <div class="text-gray-900 font-bold text-xl mb-2">Ik kan een database ontwerpen en maken
-                                voor het beheren van de levels en de vorderingen van de studenten.
-                            </div>
-                            <p class="text-gray-700 text-base"></p>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="text-sm">
-                                <p class="text-gray-900 leading-none">Vista College</p>
-                                <p class="text-gray-600">Software Developer (25904 en 25998)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php require 'challenges-tab3.inc.php' ?>
             </div>
             <div id="tab4" class="tabcontent p-4 hidden">
-                <div class="max-w-sm w-full lg:max-w-full lg:flex">
-                    <div class="h-48 lg:h-auto lg:w-96 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
-                        style="background-image: url('https://blog.udemy.com/wp-content/uploads/2013/10/shutterstock_108312236.jpg')"
-                        title="Woman holding a mug">
-                    </div>
-                    <div
-                        class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                        <div class="mb-8">
-                            <p class="text-sm text-gray-600 flex items-center italic mb-2">
-                                Challenge 18
-                            </p>
-                            <div class="text-gray-900 font-bold text-xl mb-2">Ik kan ervoor zorgen dat levels en de vorderingen van de student beheerd kunnen worden via mbogodigital.nl.
-                            </div>
-                            <p class="text-gray-700 text-base"></p>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="text-sm">
-                                <p class="text-gray-900 leading-none">Vista College</p>
-                                <p class="text-gray-600">Software Developer (25904 en 25998)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php require 'challenges-tab4.inc.php' ?>
             </div>
         </div>
 

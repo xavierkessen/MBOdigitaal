@@ -1,16 +1,16 @@
 <!-- Tabel met de challengeomschrijving. -->
 <div class="max-w-sm w-full lg:max-w-full lg:flex mb-8">
     <div class="h-auto w-1/2 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
-        <img src="/images/periode9/periode9_challenge27.png" alt="Achterliggend leerdoel Challenge 27">
+        <img src="/images/periode9/periode9_challenge27.png" alt="Achterliggend leerdoel Challenge 26">
     </div>
     <div
         class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
         <div class="mb-8">
             <p class="text-sm text-gray-600 flex items-center italic mb-2">
-                Challenge 27
+                Challenge 15
             </p>
-            <div class="text-gray-900 font-bold text-xl mb-2">Ik kan ervoor zorgen dat keuzedelen
-                beheerd kunnen worden via mbogodigital.nl.
+            <div class="text-gray-900 font-bold text-xl mb-2">Ik kan ervoor zorgen dat levels en de
+                vorderingen van de student beheerd kunnen worden via mbogodigital.nl.
             </div>
             <p class="text-gray-700 text-base"></p>
         </div>
@@ -37,19 +37,25 @@
     </thead>
     <tbody>
         <tr>
-            <td class="border border-gray-300 px-4 py-2">Voor minimaal 2 tabellen (per persoon) bouw je het CRUD-systeem in het admin-panel van mbogodigital.nl. <b>(Groep)</b></td>
+            <td class="border border-gray-300 px-4 py-2">Voor minimaal 2 tabellen (per persoon) bouw je het CRUD-systeem
+                in het admin-panel van mbogodigital.nl. <b>(Groep)</b></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center">12</td>
         </tr>
         <tr>
-            <td class="border border-gray-300 px-4 py-2">De frontend is aangepast zodat de keuzedeleninformatie ook gebruikt kan worden. <b>(Groep)</b></td>
+            <td class="border border-gray-300 px-4 py-2">De frontend is aangepast zodat de levelinformatie ook
+                gebruikt kan worden. <b>(Groep)</b></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center">9</td>
         </tr>
         <tr>
-            <td class="border border-gray-300 px-4 py-2">Er is een acceptatietest uitgevoerd met minimaal twee soorten gebruikers, keuze uit: student, docent, keuzedelencoordinator, curriculum beheerder of onderwijsmanager. <b>(Groep)</b></td>
+            <td class="border border-gray-300 px-4 py-2">Er is een acceptatietest uitgevoerd met minimaal twee soorten
+                gebruikers, keuze uit: student, docent of onderwijsmanager.
+                <b>(Groep)</b>
+            </td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center">6</td>
         </tr>
         <tr>
-            <td class="border border-gray-300 px-4 py-2">Schrijf een review over het project mbogodigital.nl in het Engels. <b>(Individueel)</b></td>
+            <td class="border border-gray-300 px-4 py-2">Schrijf een review over het project mbogodigital.nl in het
+                Engels. <b>(Individueel)</b></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center">6</td>
         </tr>
     </tbody>
@@ -70,19 +76,24 @@
     </thead>
     <tbody>
         <tr>
-            <td class="border border-gray-300 px-4 py-2">Werkende website met keuzedelen op mbogodigital.nl.</td>
-            <td class="border border-gray-300 px-4 py-2">Screenrecording met hierin een demonstratie van het resultaat.</td>
-            <td class="border border-gray-300 px-4 py-2">Licht in de screenrecording toe wat de gemaakte keuzes zijn. Licht ook toe welke werkzaamheden er nog moeten gebeuren. </td>
+            <td class="border border-gray-300 px-4 py-2">Werkende website met levels op mbogodigital.nl.</td>
+            <td class="border border-gray-300 px-4 py-2">Screenrecording met hierin een demonstratie van het resultaat.
+            </td>
+            <td class="border border-gray-300 px-4 py-2">Licht in de screenrecording toe wat de gemaakte keuzes zijn.
+                Licht ook toe welke werkzaamheden er nog moeten gebeuren. </td>
         </tr>
         <tr>
-            <td class="border border-gray-300 px-4 py-2">Uitgevoerde acceptatietest bij twee gebruikers (met een verschillende rol).</td>
+            <td class="border border-gray-300 px-4 py-2">Uitgevoerde acceptatietest bij twee gebruikers (met een
+                verschillende rol).</td>
             <td class="border border-gray-300 px-4 py-2">Rapportage van de acceptatietest.</td>
-            <td class="border border-gray-300 px-4 py-2">Zorg voor een professionele rapportage en geef in deze rapportage ook aan wat er verbeterd kan of moet worden.</td>
+            <td class="border border-gray-300 px-4 py-2">Zorg voor een professionele rapportage en geef in deze
+                rapportage ook aan wat er verbeterd kan of moet worden.</td>
         </tr>
         <tr>
             <td class="border border-gray-300 px-4 py-2">Review in het engels van het project mbogodigital.nl.</td>
             <td class="border border-gray-300 px-4 py-2">Review is geplaatst op de website mbogodigital.nl.</td>
-            <td class="border border-gray-300 px-4 py-2">Zorg ervoor dat alle argumenten onderbouwd worden en dat de review goed genoeg is om op de website mbogodigital.nl te plaatsen.</td>
+            <td class="border border-gray-300 px-4 py-2">Zorg ervoor dat alle argumenten onderbouwd worden en dat de
+                review goed genoeg is om op de website mbogodigital.nl te plaatsen.</td>
         </tr>
     </tbody>
 </table>
@@ -196,7 +207,8 @@
                 <a href="https://youtu.be/YNGf6_F-0O4?feature=shared" target="_blank">
                     Uitleg gebruikersacceptatietest</a>
             </td>
-            <td class="border border-gray-300 px-4 py-2">In deze video wordt uitgelegd wat een acceptatietest is en waar je allemaal aan moet denken.</td>
+            <td class="border border-gray-300 px-4 py-2">In deze video wordt uitgelegd wat een acceptatietest is en waar
+                je allemaal aan moet denken.</td>
             <td class="border border-gray-300 px-4 py-2">Ja</td>
         </tr>
     </tbody>
