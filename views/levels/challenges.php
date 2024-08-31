@@ -12,7 +12,7 @@
 
         <h2 class="text-2xl font-bold dark:text-white">Levels</h2>
         <p class="my-4 font-bold text-gray-700">Hieronder staat het overzicht van die te maken hebben met het
-            ontwikkelen van de keuzedelen binnen het systeem van mbogodigital.nl</p>
+            ontwikkelen van de levels binnen het systeem van mbogodigital.nl</p>
 
         <div class="w-full">
             <div class="flex border-b border-gray-300">
