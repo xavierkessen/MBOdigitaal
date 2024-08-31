@@ -1,9 +1,9 @@
 <!-- Tabel met de challengeomschrijving. -->
 <div class="max-w-sm w-full lg:max-w-full lg:flex mb-8">
-    <div class="h-auto w-1/2 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
-        <img src="/images/periode9/periode9_challenge25.png" alt="Achterliggend leerdoel Challenge 25">
+    <div class="border-b border-l border-t border-gray-400 h-auto w-1/2 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
+        <img src="/images/periode5/periode5_challenge13.jpg" alt="Achterliggend leerdoel Challenge 25">
     </div>
-    <div class="border border-gray-300 bg-white rounded-b p-4 flex flex-col justify-between leading-normal">
+    <div class="border-b border-r border-t border-gray-300 bg-white rounded-b p-4 flex flex-col justify-between leading-normal">
         <div class="mb-8">
             <p class="text-sm text-gray-600 flex items-center italic mb-2">
                 Challenge 13

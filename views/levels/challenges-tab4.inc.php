@@ -1,10 +1,10 @@
 <!-- Tabel met de challengeomschrijving. -->
 <div class="max-w-sm w-full lg:max-w-full lg:flex mb-8">
-    <div class="h-auto w-1/2 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
-        <img src="/images/periode9/periode9_challenge27.png" alt="Achterliggend leerdoel Challenge 26">
+    <div class="border-b border-l border-t border-gray-400 h-auto w-1/2 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
+        <img src="/images/periode5/periode5_challenge15.jpg" alt="Achterliggend leerdoel Challenge 26">
     </div>
     <div
-        class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+        class="border-r border-b border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
         <div class="mb-8">
             <p class="text-sm text-gray-600 flex items-center italic mb-2">
                 Challenge 15
