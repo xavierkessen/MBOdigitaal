@@ -235,6 +235,15 @@
             <td class="border border-gray-300 px-4 py-2">De diagrammen die gebruikt zijn voor het technisch ontwerp.
             </td>
         </tr>
+        <tr>
+            <td class="border border-gray-300 px-4 py-2 font-bold underline">
+                <a href="https://eduofficenl.sharepoint.com/:p:/s/ICTLyceumAOteam/EdbI2FfRKZVLsKnKI9pJJtQBvu2cUaDmwwQoCwaRc5O4Dw?e=SE13Wf"
+                    target="_blank">
+                    Presentatie Periode 9</a>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">Presentatie over de start van het schooljaar.
+            </td>
+        </tr>
     </tbody>
 </table>
 

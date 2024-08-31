@@ -11,11 +11,11 @@
             <ul class="flex items-center">
                 <li
                     class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-blue-100 hover:text-blue-500 duration-200 cursor-pointer active">
-                    <a href="/keuzedelen">Keuzedelen</a>
+                    <a href="/keuzedelen/">Keuzedelen</a>
                 </li>
                 <li
                     class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-blue-100 hover:text-blue-500 duration-200 cursor-pointer">
-                    <a href="/levels">Levels</a>
+                    <a href="/levels/">Levels</a>
                 </li>
             </ul>
         </nav>
