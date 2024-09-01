@@ -8,7 +8,7 @@
 <body>
     <?php require '../views/templates/menu.php' ?>
 
-    <div class="mt-6 mb-16 w-11/12 p-6 space-y-8 sm:p-8 bg-white rounded-lg dark:bg-gray-800 mx-auto">
+    <div class="mt-6 mb-16 w-11/12 p-6 space-y-8 sm:p-8 bg-white mx-auto">
 
         <h2 class="text-2xl font-bold dark:text-white">Levels</h2>
         <p class="my-4 font-bold text-gray-700">Hieronder staat het overzicht van die te maken hebben met het

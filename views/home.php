@@ -8,7 +8,7 @@
 <body>
     <?php require 'templates/menu.php' ?>
 
-    <div class="mt-6 mb-16 w-11/12 p-6 space-y-8 sm:p-8 bg-white rounded-lg dark:bg-gray-800 mx-auto">
+    <div class="mt-6 mb-16 w-11/12 p-6 space-y-8 sm:p-8 bg-white mx-auto">
 
         <h2 class="text-2xl font-bold dark:text-white">Automatisering voor en door studenten</h2>
         <p class="my-4 font-bold text-gray-700">Het project MBO digitaal is een project van de Software Development
@@ -22,8 +22,8 @@
         <h3 class="text-xl font-bold dark:text-white">Overzicht van onze opleidingen</h3>
 
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                     <tr>
                         <th scope="col" class="px-6 py-3">
                             Crebo
@@ -41,8 +41,8 @@
                     foreach ($educations as $education) {
                         ?>
                         <tr
-                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            class="odd:bg-white even:bg-gray-50 border-b ">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                 <?php echo $education["creboNumber"]; ?>
                             </th>
                             <td class="px-6 py-4">
