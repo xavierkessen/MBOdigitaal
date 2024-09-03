@@ -6,19 +6,23 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/database/dbconnection.php';
 $sqlFile = 'setup.sql';
 
 try {
-    // Connect to MySQL database using PDO
+    // Zorg dat alle foutmeldigen worden weergegeven.
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Read the SQL file
+    // Lees het hele bestand setup.sql in één variable als string.
     $sql = file_get_contents($sqlFile);
 
+    // Geef een foutmelding als het niet gelukt is om het bestand te lezen.
+    // Of het bestand niet bestaat.
     if ($sql === false) {
         throw new Exception('Error reading SQL file');
     }
 
-    // Execute the SQL commands
+    // Execute alle sql commando's.
+    // Geef een melding dat het gelukt is.
     $db->exec($sql);
     echo 'SQL file succesvol geïmporteerd.';
+    
 } catch (PDOException $e) {
     echo 'Database error: ' . $e->getMessage();
 } catch (Exception $e) {
