@@ -213,7 +213,7 @@
         </tr>
         <tr>
             <td class="border border-gray-300 px-4 py-2 font-bold underline">
-                <a href=""
+                <a href="https://eduofficenl-my.sharepoint.com/:f:/g/personal/m_dackus_vistacollege_nl/EjOKnBTUKnZHurNnI7a_wmQBqbf2yLOsnitned62wMPOTg?e=7KTxKf"
                     target="_blank">
                     Informatie van alle levels</a>
             </td>
