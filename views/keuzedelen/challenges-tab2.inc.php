@@ -40,6 +40,10 @@
             <td class="border border-gray-300 px-4 py-2 font-bold text-center">3</td>
         </tr>
         <tr>
+            <td class="border border-gray-300 px-4 py-2">Tabel met keuzedelen gevuld met alle keuzedelen waaruit de studenten kunnen kiezen. <b>(Individueel)</b></td>
+            <td class="border border-gray-300 px-4 py-2 font-bold text-center">2</td>
+        </tr>
+        <tr>
             <td class="border border-gray-300 px-4 py-2">Ontwerp en maak de frontend voor het presenteren van de
                 keuzedeleninformatie. <b>(Individueel)</b></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center">6</td>
@@ -83,6 +87,11 @@
             <td class="border border-gray-300 px-4 py-2">Zorg dat je kunt laten zien dat de developmentomgeving op je
                 eigen
                 laptop staat.</td>
+        </tr>
+        <tr>
+            <td class="border border-gray-300 px-4 py-2">Database is gevuld met keuzedelen</td>
+            <td class="border border-gray-300 px-4 py-2">Printscreen van een query in het databaseprogramma</td>
+            <td class="border border-gray-300 px-4 py-2">Zorg dat je aan het screenshot kunt zien dat hij vanaf je eigen laptop is genomen.</td>
         </tr>
         <tr>
             <td class="border border-gray-300 px-4 py-2">Aangepast technisch ontwerp (TO)</td>
@@ -203,6 +212,14 @@
         </tr>
         <tr>
             <td class="border border-gray-300 px-4 py-2 font-bold underline">
+                <a href="https://eduofficenl-my.sharepoint.com/:f:/g/personal/m_dackus_vistacollege_nl/EmxMpmZ_ulZKvJDcaCclvNYBA5HN-Nh-BCo0ayYs-zCAUw?e=yNUsVk"
+                    target="_blank">
+                    Informatie van alle keuzedelen</a>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">Gebruik deze documenten om de tabel "keuzedeel" te vullen. Doe dit met het PHPMyAdmin of MySQL workbench.</td>
+        </tr>
+        <tr>
+            <td class="border border-gray-300 px-4 py-2 font-bold underline">
                 <a href="https://github.com/ICTLyceum/MBOdigitaal" target="_blank">
                     Repository mbogodigital.nl op github.com</a>
             </td>
@@ -237,6 +254,15 @@
         </tr>
         <tr>
             <td class="border border-gray-300 px-4 py-2 font-bold underline">
+                <a href="https://eduofficenl-my.sharepoint.com/:i:/g/personal/m_dackus_vistacollege_nl/EWyCxJ76FIZMjpUJuEj2KbUBo9u-m6PlLNCvILhHMkK0gQ?e=RA4b45"
+                    target="_blank">
+                    ERD met tabel keuzedeel</a>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">Hier kun je zien hoe de tabel "keuzedeel" in de database is aangemaakt.
+            </td>
+        </tr>
+        <tr>
+            <td class="border border-gray-300 px-4 py-2 font-bold underline">
                 <a href="https://eduofficenl.sharepoint.com/:p:/s/ICTLyceumAOteam/EdbI2FfRKZVLsKnKI9pJJtQBvu2cUaDmwwQoCwaRc5O4Dw?e=SE13Wf"
                     target="_blank">
                     Presentatie Periode 9</a>
@@ -258,6 +284,5 @@
 </p>
 <ul class="my-2 list-disc pl-5">
     <li class="ml-4">Eerste opzet van het technisch ontwerp moet nog iets meer worden uitgewerkt.</li>
-    <li class="ml-4">Website mbogodigital.nl moet nog online gezet worden.</li>
     <li class="ml-4">Banners en stickers laten maken van het project mbodigital.nl.</li>
 </ul>

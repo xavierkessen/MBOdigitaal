@@ -41,6 +41,10 @@
             <td class="border border-gray-300 px-4 py-2 font-bold text-center">3</td>
         </tr>
         <tr>
+            <td class="border border-gray-300 px-4 py-2">Tabel met levels gevuld met alle levelinformatie waaruit de studenten kunnen kiezen. <b>(Individueel)</b></td>
+            <td class="border border-gray-300 px-4 py-2 font-bold text-center">2</td>
+        </tr>
+        <tr>
             <td class="border border-gray-300 px-4 py-2">Ontwerp en maak de frontend voor het presenteren van de
                 levelinformatie. <b>(Individueel)</b></td>
             <td class="border border-gray-300 px-4 py-2 font-bold text-center">6</td>
@@ -84,6 +88,11 @@
             <td class="border border-gray-300 px-4 py-2">Zorg dat je kunt laten zien dat de developmentomgeving op je
                 eigen
                 laptop staat.</td>
+        </tr>
+        <tr>
+            <td class="border border-gray-300 px-4 py-2">Database is gevuld met levels</td>
+            <td class="border border-gray-300 px-4 py-2">Printscreen van een query in het databaseprogramma</td>
+            <td class="border border-gray-300 px-4 py-2">Zorg dat je aan het screenshot kunt zien dat hij vanaf je eigen laptop is genomen.</td>
         </tr>
         <tr>
             <td class="border border-gray-300 px-4 py-2">Aangepast technisch ontwerp (TO)</td>
@@ -204,6 +213,14 @@
         </tr>
         <tr>
             <td class="border border-gray-300 px-4 py-2 font-bold underline">
+                <a href=""
+                    target="_blank">
+                    Informatie van alle levels</a>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">Gebruik deze documenten om de tabel "levels" te vullen. Doe dit met het PHPMyAdmin of MySQL Workbench.</td>
+        </tr>
+        <tr>
+            <td class="border border-gray-300 px-4 py-2 font-bold underline">
                 <a href="https://github.com/ICTLyceum/MBOdigitaal" target="_blank">
                     Repository mbogodigital.nl op github.com</a>
             </td>
@@ -236,6 +253,24 @@
             <td class="border border-gray-300 px-4 py-2">De diagrammen die gebruikt zijn voor het technisch ontwerp.
             </td>
         </tr>
+        <tr>
+            <td class="border border-gray-300 px-4 py-2 font-bold underline">
+                <a href="https://eduofficenl-my.sharepoint.com/:i:/g/personal/m_dackus_vistacollege_nl/EWyCxJ76FIZMjpUJuEj2KbUBo9u-m6PlLNCvILhHMkK0gQ?e=RA4b45"
+                    target="_blank">
+                    ERD met tabel levels</a>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">Hier kun je zien hoe de tabel "levels" in de database is aangemaakt.
+            </td>
+        </tr>
+        <tr>
+            <td class="border border-gray-300 px-4 py-2 font-bold underline">
+                <a href="https://eduofficenl.sharepoint.com/:p:/s/ICTLyceumAOteam/ETwEsx0QY1ZBr9KOe1yRKh0BR-dvBT1pXLvQTyHQRVaGHA?e=STHIIW"
+                    target="_blank">
+                    Presentatie Periode 5</a>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">Presentatie over de start van het schooljaar.
+            </td>
+        </tr>
     </tbody>
 </table>
 
@@ -250,6 +285,6 @@
 </p>
 <ul class="my-2 list-disc pl-5">
     <li class="ml-4">Eerste opzet van het technisch ontwerp moet nog iets meer worden uitgewerkt.</li>
-    <li class="ml-4">Website mbogodigital.nl moet nog online gezet worden.</li>
+    <li class="ml-4">Informatie over de levels moet nog verzameld worden.</li>
     <li class="ml-4">Banners en stickers laten maken van het project mbodigital.nl.</li>
 </ul>
