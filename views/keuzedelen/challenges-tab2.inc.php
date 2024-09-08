@@ -220,6 +220,14 @@
         </tr>
         <tr>
             <td class="border border-gray-300 px-4 py-2 font-bold underline">
+                <a href="https://eduofficenl-my.sharepoint.com/:w:/g/personal/m_dackus_vistacollege_nl/EYDrW8XPTrFDm10Nc0d0uJEBcrZR77RcS1hyE7c4YIdXWg?e=GrbWFT"
+                    target="_blank">
+                    Start document (na het opzetten van de developmentomgeving)</a>
+            </td>
+            <td class="border border-gray-300 px-4 py-2">Na het opzetten van de developmentomgeving kan het lastig zijn om een start te maken. Dit document kan je hierbij helpen.</td>
+        </tr>
+        <tr>
+            <td class="border border-gray-300 px-4 py-2 font-bold underline">
                 <a href="https://github.com/ICTLyceum/MBOdigitaal" target="_blank">
                     Repository mbogodigital.nl op github.com</a>
             </td>
