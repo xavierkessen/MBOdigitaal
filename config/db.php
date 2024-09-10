@@ -5,6 +5,9 @@ $dbName = "mbogodigital";                // Naam van de MySQL database.
 $user = "mbogodigitalUser";          // Gebruikersnaam die toegang heeft tot de database.
 $password = "Vrieskist@247";        // Wachtwoord van de gebruiker.
 
+// Regel hieronder alleen gebruiken als je docker-compose gebruikt.
+// $host = "mysql";
+
 /*
  * MAAK EEN GEBRUIKER AAN IN MYSQL
  * 
@@ -37,8 +40,11 @@ $password = "Vrieskist@247";        // Wachtwoord van de gebruiker.
   * hier in de code te zetten.
   *
   * Zo moet de code er dan uiteindelijk uitzien.
-  * $host = getenv('HOST');
-  * $db = getenv('DB');
-  * $user = getenv('USER');
-  * $password = getenv('PASSWORD');
+// $host = getenv("MYSQL_ROOT_HOST");
+// $dbName = getenv("MYSQL_DATABASE");
+// $user = getenv("MYSQL_USER");
+// $password = getenv("MYSQL_PASSWORD");
+
   */
+
+
