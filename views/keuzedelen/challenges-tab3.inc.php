@@ -27,7 +27,7 @@
 <h1 class="m-2 text-2xl leading-none text-gray-900">
     Omschrijving
 </h1>
-<p class="text-gray-900 text-lg m-3 mb-8">
+<p class="text-gray-900 text-lg m-4 mb-8">
     Start als groep met het bestuderen van <a
         href="https://eduofficenl-my.sharepoint.com/:f:/g/personal/m_dackus_vistacollege_nl/EuV8KX8A5llLjjAhuSplUWgBnGKMGPXVq35oo557ikudAQ?e=kfHnAQ"
         target="_blank" class="underline">
