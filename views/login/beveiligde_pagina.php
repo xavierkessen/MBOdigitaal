@@ -47,7 +47,7 @@ if (!isset($_SESSION['gebruikersnaam'])) {
     <button class="button" onclick="window.location.href='klassen.php'">Klassen</button>
     <button class="button" onclick="window.location.href='studenten.php'">Studenten</button>
     <button class="button" onclick="window.location.href='docent.php'">Docenten</button>
-    <button class="button" onclick="window.location.href='mentoren.php'">Mentoren</button>
+    <button class="button" onclick="window.location.href='mentor.php'">Mentoren</button>
     <button class="button" onclick="window.location.href='levels.php'">Levels</button>
     <button class="button" onclick="window.location.href='toewijzen.php'">Toewijzen</button>
 </div>
