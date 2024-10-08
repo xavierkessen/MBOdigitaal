@@ -78,6 +78,22 @@ $klassenResult = $conn->query("SELECT DISTINCT klas FROM studenten");
                 </div>
             </div>
 
+            <!-- Nieuw gedeelte voor keuzedelen -->
+            <div class="mt-6">
+                <label for="keuzedeel" class="block text-gray-700 font-bold">Kies een keuzedeel:</label>
+                <select id="keuzedeel" name="keuzedeel" class="mt-2 p-2 border border-gray-300 rounded w-full" onchange="window.location.href=this.value;">
+                    <option value="">-- Selecteer een keuzedeel --</option>
+                    <option value="keuzedeel1.php">Keuzedeel 1</option>
+                    <option value="keuzedeel2.php">Keuzedeel 2</option>
+                    <option value="keuzedeel3.php">Keuzedeel 3</option>
+                    <option value="keuzedeel4.php">Keuzedeel 4</option>
+                    <option value="keuzedeel5.php">Keuzedeel 5</option>
+                    <option value="keuzedeel6.php">Keuzedeel 6</option>
+                    <option value="keuzedeel7.php">Keuzedeel 7</option>
+                    <option value="keuzedeel8.php">Keuzedeel 8</option>
+                </select>
+            </div>
+
             <div class="mt-6">
                 <input type="submit" value="Filteren" class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 cursor-pointer">
             </div>
