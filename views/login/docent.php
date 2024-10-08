@@ -80,7 +80,7 @@ $klassenResult = $conn->query("SELECT DISTINCT klas FROM studenten");
 
             <!-- Nieuw gedeelte voor keuzedelen -->
             <div class="mt-6">
-                <label for="keuzedeel" class="block text-gray-700 font-bold">Kies een keuzedeel:</label>
+                <label for="keuzedeel" class="block text-gray-700 font-bold">Kies en bekijken keuzedelen:</label>
                 <select id="keuzedeel" name="keuzedeel" class="mt-2 p-2 border border-gray-300 rounded w-full" onchange="window.location.href=this.value;">
                     <option value="">-- Selecteer een keuzedeel --</option>
                     <option value="keuzedeel1.php">Keuzedeel 1</option>
