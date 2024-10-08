@@ -10,6 +10,7 @@
 
     <div class="mt-16 mb-20 max-w-4xl p-10 bg-white shadow-2xl rounded-3xl mx-auto transform transition duration-500 hover:scale-105">
         
+
         <h1 class="text-4xl font-bold text-center text-blue-600 mb-10 tracking-wide uppercase">
             Basis Programmeren
         </h1>
