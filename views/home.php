@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="nl">
 
+test test test 
+
 <head>
     <?php require 'templates/head.php' ?>
 </head>
