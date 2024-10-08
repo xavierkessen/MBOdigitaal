@@ -6,6 +6,17 @@ if (!isset($_SESSION['gebruikersnaam'])) {
     header("Location: login.php");
     exit;
 }
+
+// Functie om uit te loggen
+if (isset($_GET['logout'])) {
+    // Vernietig alle sessiegegevens
+    session_unset();
+    session_destroy();
+
+    // Stuur de gebruiker terug naar de loginpagina
+    header("Location: login.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -18,9 +29,13 @@ if (!isset($_SESSION['gebruikersnaam'])) {
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+            margin: 0;
         }
         .container {
-            width: 100%;
             text-align: center;
             margin-top: 50px;
         }
@@ -37,6 +52,16 @@ if (!isset($_SESSION['gebruikersnaam'])) {
         .button:hover {
             background-color: #0056b3;
         }
+        .logout-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logout-button {
+            background-color: #FF0000;
+        }
+        .logout-button:hover {
+            background-color: #CC0000;
+        }
     </style>
 </head>
 <body>
@@ -50,6 +75,11 @@ if (!isset($_SESSION['gebruikersnaam'])) {
     <button class="button" onclick="window.location.href='mentor.php'">Mentoren</button>
     <button class="button" onclick="window.location.href='levels.php'">Levels</button>
     <button class="button" onclick="window.location.href='toewijzen.php'">Toewijzen</button>
+</div>
+
+<!-- Uitlog knop aan de onderkant -->
+<div class="logout-container">
+    <button class="button logout-button" onclick="window.location.href='?logout=true'">Uitloggen</button>
 </div>
 
 </body>
