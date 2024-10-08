@@ -36,56 +36,42 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Detail</title>
-    <style>
-        .student-detail {
-            width: 50%;
-            margin: 0 auto;
-            border: 1px solid #ddd;
-            padding: 20px;
-            text-align: left;
-        }
-        img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-        }
-        .back-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .back-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <div class="student-detail">
-        <h2>Details van <?php echo htmlspecialchars($row["firstName"]) . " " . htmlspecialchars($row["lastName"]); ?></h2>
+
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+
+    <!-- Container voor de inhoud -->
+    <div class="w-full max-w-lg p-6 space-y-8 bg-white shadow-md rounded-lg text-center">
         
+     
+
+        <h2 class="text-2xl font-bold text-gray-800">Details van <?php echo htmlspecialchars($row["firstName"]) . " " . htmlspecialchars($row["lastName"]); ?></h2>
+
         <!-- Profielfoto -->
-        <img src='/views/images/<?php echo !empty($row["profielFoto"]) ? htmlspecialchars($row["profielFoto"]) : 'default.jpg'; ?>' alt='Profielfoto'>
+        <img src='/views/images/<?php echo !empty($row["profielFoto"]) ? htmlspecialchars($row["profielFoto"]) : 'default.jpg'; ?>' alt='Profielfoto' class='w-40 h-40 rounded-full object-cover mx-auto'>
 
         <!-- Studentgegevens -->
-        <p><strong>Studentnummer:</strong> <?php echo htmlspecialchars($row["studentnummer"]); ?></p>
-        <p><strong>DUO Nummer:</strong> <?php echo htmlspecialchars($row["duoNumber"]); ?></p>
-        <p><strong>Klas:</strong> <?php echo htmlspecialchars($row["klas"]); ?></p>
-        <p><strong>Jaar:</strong> <?php echo htmlspecialchars($row["jaar"]); ?></p>
-        <p><strong>Opleiding:</strong> <?php echo htmlspecialchars($row["opleiding"]); ?></p>
-        <p><strong>Keuzedeel:</strong> <?php echo htmlspecialchars($row["keuzedeel"]); ?></p>
+        <div class="mt-6 space-y-4 text-gray-700">
+            <p><strong>Studentnummer:</strong> <?php echo htmlspecialchars($row["studentnummer"]); ?></p>
+            <p><strong>DUO Nummer:</strong> <?php echo htmlspecialchars($row["duoNumber"]); ?></p>
+            <p><strong>Klas:</strong> <?php echo htmlspecialchars($row["klas"]); ?></p>
+            <p><strong>Jaar:</strong> <?php echo htmlspecialchars($row["jaar"]); ?></p>
+            <p><strong>Opleiding:</strong> <?php echo htmlspecialchars($row["opleiding"]); ?></p>
+            <p><strong>Keuzedeel:</strong> <?php echo htmlspecialchars($row["keuzedeel"]); ?></p>
+        </div>
 
         <!-- Terug Knop -->
-        <a href="docent.php" class="back-button">Terug naar overzicht</a>
+        <a href="docent.php" class="mt-8 block w-full bg-blue-500 text-white text-center font-bold py-2 px-4 rounded hover:bg-blue-600">Terug naar overzicht</a>
     </div>
+
 </body>
+
 </html>
 
 <?php
