@@ -55,7 +55,7 @@ $klassenResult = $conn->query("SELECT DISTINCT klas FROM studenten");
         <p class="my-4 font-bold text-gray-700">Hieronder staat het overzicht van studenten per klas en cohort binnen het systeem van mbogodigital.nl.</p>
 
         <!-- Filterformulier voor cohort en klas -->
-        <form class="filter-form mb-8" method="GET" action="docent.php">
+        <form class="filter-form mb-8" method="GET" action="mentor.php">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                     <label for="cohort" class="block text-gray-700 font-bold">Cohort (jaar):</label>
