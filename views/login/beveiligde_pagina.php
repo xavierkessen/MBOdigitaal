@@ -22,6 +22,7 @@ if (isset($_GET['logout'])) {
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>School Management Interface</title>
@@ -29,44 +30,70 @@ if (isset($_GET['logout'])) {
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 100vh;
             margin: 0;
+            padding: 0;
         }
-        .container {
-            text-align: center;
-            margin-top: 50px;
+
+        /* Navigatiebalk */
+        .navbar {
+            background-color: #007BFF;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .button {
+
+        .navbar .button {
             background-color: #007BFF;
             color: white;
             border: none;
-            padding: 15px 25px;
-            margin: 10px;
+            padding: 10px 20px;
+            margin: 0 10px;
             cursor: pointer;
             font-size: 16px;
             border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
-        .button:hover {
+
+        .navbar .button:hover {
             background-color: #0056b3;
         }
+
+        /* Uitlog knop */
         .logout-container {
             text-align: center;
-            margin-bottom: 20px;
+            margin: 40px 0;
         }
+
         .logout-button {
             background-color: #FF0000;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
+
         .logout-button:hover {
             background-color: #CC0000;
+        }
+
+        /* Minimalistisch uiterlijk met flexbox voor de inhoud */
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 130px); /* Houd ruimte vrij voor de navigatiebalk en uitlog knop */
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+<!-- Navigatiebalk bovenaan -->
+<div class="navbar">
     <button class="button" onclick="window.location.href='opleidingen.php'">Opleidingen</button>
     <button class="button" onclick="window.location.href='cohorten.php'">Cohorten</button>
     <button class="button" onclick="window.location.href='klassen.php'">Klassen</button>
@@ -77,9 +104,14 @@ if (isset($_GET['logout'])) {
     <button class="button" onclick="window.location.href='toewijzen.php'">Toewijzen</button>
 </div>
 
-<!-- Uitlog knop aan de onderkant -->
+<!-- Hoofdinhoud -->
+<div class="content">
+    <h2>Welkom bij het School Management Systeem</h2>
+</div>
+
+<!-- Uitlog knop onderaan -->
 <div class="logout-container">
-    <button class="button logout-button" onclick="window.location.href='?logout=true'">Uitloggen</button>
+    <button class="logout-button" onclick="window.location.href='?logout=true'">Uitloggen</button>
 </div>
 
 </body>
