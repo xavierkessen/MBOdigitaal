@@ -83,14 +83,13 @@ $klassenResult = $conn->query("SELECT DISTINCT klas FROM studenten");
                 <label for="keuzedeel" class="block text-gray-700 font-bold">Kies en bekijken keuzedelen:</label>
                 <select id="keuzedeel" name="keuzedeel" class="mt-2 p-2 border border-gray-300 rounded w-full" onchange="window.location.href=this.value;">
                     <option value="">-- Selecteer een keuzedeel --</option>
-                    <option value="keuzedeel1.php">Keuzedeel 1</option>
-                    <option value="keuzedeel2.php">Keuzedeel 2</option>
-                    <option value="keuzedeel3.php">Keuzedeel 3</option>
-                    <option value="keuzedeel4.php">Keuzedeel 4</option>
-                    <option value="keuzedeel5.php">Keuzedeel 5</option>
-                    <option value="keuzedeel6.php">Keuzedeel 6</option>
-                    <option value="keuzedeel7.php">Keuzedeel 7</option>
-                    <option value="keuzedeel8.php">Keuzedeel 8</option>
+                    <option value="/views/keuzedelendocent/basisprogrameren.php">basisprogrameren</option>
+                    <option value="/views/keuzedelendocent/digitalevaardigheden.php">digitalevaardigheden</option>
+                    <option value="/views/keuzedelendocent/fotografiebasis.php">fotografie basis</option>
+                    <option value="/views/keuzedelendocent/inspelenopinnovaties.php">inspelen op innovaties</option>
+                    <option value="/views/keuzedelendocent/ondernemendgedrag.php">ondernemendgedrag</option>
+                    <option value="/views/keuzedelendocent/orientatieopondernemendschap.php">orientatie op ondernemendschap</option>
+                    <option value="/views/keuzedelendocent/verdiepingsoftware.php">verdiepingsoftware</option>
                 </select>
             </div>
 
