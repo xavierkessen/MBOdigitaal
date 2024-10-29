@@ -162,9 +162,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['view_keuzedeel'])) {
 <body class="bg-gray-100 font-sans">
 
 <!-- Navigatie Tabjes -->
-<div class="bg-gray-800 p-4">
+<div class="bg-blue-500 p-4">
     <div class="container mx-auto flex justify-around">
-        <a href="/views/keuzedelenstudent/basisprogrameren.php" class="text-white hover:bg-gray-700 py-2 px-4 rounded">Basisprogrammeren</a>
+    <img src="/images/logo.png" alt="Logo" style="height: 40px; width: auto; margin-left: -190px; padding-left: 0px;">
+        <a href="/views/keuzedelenstudent/basisprogrameren.php" class="text-white hover:bg-S-700 py-2 px-4 rounded">Basisprogrammeren</a>
         <a href="/views/keuzedelenstudent/digitalevaardigheden.php" class="text-white hover:bg-gray-700 py-2 px-4 rounded">Digitale Vaardigheden</a>
         <a href="/views/keuzedelenstudent/fotografiebasis.php" class="text-white hover:bg-gray-700 py-2 px-4 rounded">Fotografie Basis</a>
         <a href="/views/keuzedelenstudent/inspelenopinnovaties.php" class="text-white hover:bg-gray-700 py-2 px-4 rounded">Inspelen op Innovaties</a>

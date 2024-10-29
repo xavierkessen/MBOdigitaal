@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Gegenereerd op: 08 okt 2024 om 07:32
+-- Gegenereerd op: 29 okt 2024 om 12:13
 -- Serverversie: 9.0.1
 -- PHP-versie: 8.2.23
 
@@ -74,67 +74,24 @@ INSERT INTO `education` (`id`, `creboNumber`, `name`, `level`, `description`, `r
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `keuzedeel`
---
-
-CREATE TABLE `keuzedeel` (
-  `id` char(36) NOT NULL,
-  `code` varchar(10) NOT NULL,
-  `title` varchar(100) NOT NULL,
-  `sbu` int NOT NULL,
-  `description` blob,
-  `goalsDescription` blob,
-  `preconditions` blob,
-  `teachingMethods` blob,
-  `certificate` tinyint(1) NOT NULL,
-  `linkVideo` varchar(255) DEFAULT NULL,
-  `linkKD` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
 -- Tabelstructuur voor tabel `keuzedelen`
 --
 
 CREATE TABLE `keuzedelen` (
   `id` int NOT NULL,
   `naam` varchar(255) NOT NULL,
-  `code` varchar(50) NOT NULL,
-  `beschrijving` text NOT NULL,
-  `wat_ga_je_doen` text,
-  `wat_wordt_er_verwacht` text,
-  `wat_levert_het_op` text,
-  `creationDate` datetime DEFAULT CURRENT_TIMESTAMP
+  `beschrijving` text,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `keuzedelen`
 --
 
-INSERT INTO `keuzedelen` (`id`, `naam`, `code`, `beschrijving`, `wat_ga_je_doen`, `wat_wordt_er_verwacht`, `wat_levert_het_op`, `creationDate`) VALUES
-(1, 'Basis Programmeren', 'K0788', '<p>Ben jij iemand die gek is op games en wil je leren hoe je ze zelf kunt maken? Dan is het keuzedeel <strong>Basis Programmeren van Games</strong> echt iets voor jou! 🎮</p><p>In dit keuzedeel leer je de basis van het programmeren van toffe games. We duiken in de wereld van game engines en laten je zien hoe je met technische skills én je creatieve kant een eigen game kunt ontwikkelen. Denk aan eenvoudige, maar gave games die je kunt spelen op je mobiel of zelfs educatieve games!</p>', '<p><strong>Maak je eigen game:</strong> Je leert hoe je een eenvoudige game opzet, programmeert en test. Van het toevoegen van speciale effecten zoals licht en geluid, tot het zorgen dat je game perfect werkt.</p><p><strong>Samenwerken in een team:</strong> Je werkt niet alleen! Samen met een creatief team ga je aan de slag. Jij bent verantwoordelijk voor de technische kant van de game en zorgt dat alles soepel verloopt.</p><p><strong>Gebruik game engines:</strong> Je krijgt de kans om te werken met verschillende game engines en programmeertalen. En ja, we leren je ook hoe je met toekomstige trends in de gamewereld kunt omgaan.</p><p><strong>Testen, verbeteren, opleveren:</strong> Natuurlijk stopt het niet bij het maken van de game. Je gaat deze uitgebreid testen, optimaliseren en uiteindelijk presenteren aan je opdrachtgever!</p>', '<p><strong>Voorbereiding van je game:</strong> Je schrijft de benodigde programmacodes en maakt een gedetailleerd plan voor de technische realisatie van de game.</p><p><strong>Realiseer en test je game:</strong> Schrijf de programmacode en voeg de juiste game-assets toe. Test de game en zorg dat alles goed werkt.</p><p><strong>Lever je game op:</strong> Presenteer je game aan je opdrachtgever en zorg dat de documentatie van je werk op orde is en lever het tijdig in.</p>', '<p>Je krijgt niet alleen de kans om je programmeerskills te verbeteren, maar ook om je creativiteit te laten zien! Dit keuzedeel geeft je een supervoorsprong op de arbeidsmarkt. Het staat geweldig op je CV, vooral als je interesse hebt in functies zoals Applicatie- en Mediadeveloper. Klaar om de gamewereld te veroveren? <strong>Let’s go!</strong> 🚀</p>', '2024-10-01 11:40:16'),
-(2, 'Basis Programmeren 2', 'K0788', '<p>Ben jij iemand die gek is op games en ', '<p><strong>Maak je eigen game:</strong>  er!</p>', '<p><strong>Voorbereiding van je game:</strong> Je schrijft de benodigde >', '<p>Je krijgt niet alleen de kans om je ', '2024-10-01 11:40:16');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `keuzedelen_student`
---
-
-CREATE TABLE `keuzedelen_student` (
-  `id` int NOT NULL,
-  `student_id` int NOT NULL,
-  `keuzedeel_id` int NOT NULL,
-  `gekozen_op` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Gegevens worden geëxporteerd voor tabel `keuzedelen_student`
---
-
-INSERT INTO `keuzedelen_student` (`id`, `student_id`, `keuzedeel_id`, `gekozen_op`) VALUES
-(1, 1, 1, '2024-10-07');
+INSERT INTO `keuzedelen` (`id`, `naam`, `beschrijving`, `created_at`) VALUES
+(1, 'Keuzedeel 1', 'Dit is het eerste keuzedeel.', '2024-10-09 11:27:20'),
+(2, 'Keuzedeel 2', 'Dit is het tweede keuzedeel.', '2024-10-09 11:27:20'),
+(3, 'Keuzedeel 3', 'Dit is het derde keuzedeel.', '2024-10-09 11:27:20');
 
 -- --------------------------------------------------------
 
@@ -201,15 +158,45 @@ CREATE TABLE `studenten` (
   `klas` varchar(50) DEFAULT NULL,
   `jaar` year DEFAULT NULL,
   `opleiding` varchar(100) DEFAULT NULL,
-  `keuzedeel` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
+  `keuzedeel` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `wachtwoord` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `studenten`
 --
 
-INSERT INTO `studenten` (`id`, `firstName`, `prefix`, `lastName`, `studentnummer`, `profielFoto`, `duoNumber`, `klas`, `jaar`, `opleiding`, `keuzedeel`) VALUES
-(1, 'Anna', 'de', 'Vries', '987654', 'selfie-900.jpg', 'DUO987654', 'TILM125C', '2022', 'Applicatie Ontwikkelaar', 'test');
+INSERT INTO `studenten` (`id`, `firstName`, `prefix`, `lastName`, `studentnummer`, `profielFoto`, `duoNumber`, `klas`, `jaar`, `opleiding`, `keuzedeel`, `email`, `wachtwoord`) VALUES
+(1, 'Anna', 'de', 'Vries', '987654', 'selfie-900.jpg', 'DUO987654', 'TILM125C', '2022', 'Applicatie Ontwikkelaar', 'digitalevaardigheden', 'test@gmail.com', '$2y$10$FWZ2.C4YQXevnPWSdnsd8uRfFpa5BOj.LV//1YtXEBDZqUYYHhlC6'),
+(2, 'John', '', 'Doe', '987655', 'images.jpeg', 'DUO987655', 'TILM125D', '2023', 'Applicatie Ontwikkelaar', '', '', ''),
+(3, 'Maria', 'van', 'Dijk', '987656', 'images.jpeg', 'DUO987656', 'TILM125E', '2022', 'Applicatie Ontwikkelaar', '', '', ''),
+(4, 'Sophie', 'de', 'Boer', '987657', 'images.jpeg', 'DUO987657', 'TILM125F', '2022', 'Applicatie Ontwikkelaar', '', '', ''),
+(5, 'Peter', 'van', 'den Berg', '987658', 'default.png', 'DUO987658', 'TILM125G', '2022', 'Applicatie Ontwikkelaar', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `taken`
+--
+
+CREATE TABLE `taken` (
+  `id` int NOT NULL,
+  `taak_naam` varchar(255) NOT NULL,
+  `toegewezen_aan` varchar(255) NOT NULL,
+  `datum_toegewezen` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `taken`
+--
+
+INSERT INTO `taken` (`id`, `taak_naam`, `toegewezen_aan`, `datum_toegewezen`) VALUES
+(2, 'Onderzoek', 'test@gmail.com', '2024-10-14 07:37:25'),
+(3, 'Onderzoek', 'test@gmail.com', '2024-10-14 07:39:58'),
+(4, 'Onderzoek', 'test@gmail.com', '2024-10-14 07:40:03'),
+(5, 'Onderzoek', 'test@gmail.com', '2024-10-14 07:40:25'),
+(6, 'Onderzoek', 'test@gmail.com', '2024-10-14 07:41:13');
 
 -- --------------------------------------------------------
 
@@ -266,25 +253,10 @@ ALTER TABLE `education`
   ADD UNIQUE KEY `education_name_unique` (`name`);
 
 --
--- Indexen voor tabel `keuzedeel`
---
-ALTER TABLE `keuzedeel`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `keuzedeel_code_unique` (`code`);
-
---
 -- Indexen voor tabel `keuzedelen`
 --
 ALTER TABLE `keuzedelen`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexen voor tabel `keuzedelen_student`
---
-ALTER TABLE `keuzedelen_student`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `student_id` (`student_id`),
-  ADD KEY `keuzedeel_id` (`keuzedeel_id`);
 
 --
 -- Indexen voor tabel `levels`
@@ -313,6 +285,12 @@ ALTER TABLE `studenten`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexen voor tabel `taken`
+--
+ALTER TABLE `taken`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexen voor tabel `user`
 --
 ALTER TABLE `user`
@@ -336,30 +314,23 @@ ALTER TABLE `docenten`
 -- AUTO_INCREMENT voor een tabel `keuzedelen`
 --
 ALTER TABLE `keuzedelen`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT voor een tabel `keuzedelen_student`
---
-ALTER TABLE `keuzedelen_student`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT voor een tabel `studenten`
 --
 ALTER TABLE `studenten`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT voor een tabel `taken`
+--
+ALTER TABLE `taken`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Beperkingen voor geëxporteerde tabellen
 --
-
---
--- Beperkingen voor tabel `keuzedelen_student`
---
-ALTER TABLE `keuzedelen_student`
-  ADD CONSTRAINT `keuzedelen_student_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `studenten` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `keuzedelen_student_ibfk_2` FOREIGN KEY (`keuzedeel_id`) REFERENCES `keuzedelen` (`id`) ON DELETE CASCADE;
 
 --
 -- Beperkingen voor tabel `levels`
